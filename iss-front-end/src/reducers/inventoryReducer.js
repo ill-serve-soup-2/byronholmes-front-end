@@ -31,13 +31,14 @@ export default (state = initialState, action)=>{
     case DELETING_INV:
       return{...state, deletingInv: true}
     case DELETE_INV_SUCCESS:
-      return{...state, deletingInv: false, inventory: action.payload}
+     console.log([...state.inventory])
+      return{...state, deletingInv: false, inventory:[...state.inventory]}
     case DELETE_INV_SUCCESS:
       return{...state, deletingInv: false, error: "Error deleting data"}
     case UPDATING_INV:
       return{...state, updatingInv: true }
     case UPDATE_INV_SUCCESS:
-      return{...state, updatingInv: false, inventory: action.payload}
+      return{...state, updatingInv: false, inventory: [...state.inventory]}
     case UPDATE_INV_FAILURE:
       return{...state, updatingInv: false, error: "Error updating data"}
     default: return state;
