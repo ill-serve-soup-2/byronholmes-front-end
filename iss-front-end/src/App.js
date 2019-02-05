@@ -3,9 +3,11 @@ import Login from './components/LogIn'
 import Register from './components/Register'
 import Inventory from './components/Inventory'
 import LocationGrab from './components/LocationGrab'
+import DisplayInventory from './components/DisplayInventory'
+import Authenticate from './components/Authenticate'
 import logo from './logo.svg';
 import './App.css';
-import { connect } from 'react-redux';
+import { Route } from 'react-router-dom'
 
 
 class App extends Component {
@@ -13,17 +15,15 @@ class App extends Component {
     return (
       <div className="App">
         <Login />
-        <Register />
-        <Inventory />
-        <LocationGrab />
+        <Route path ="/register" component = {Register}/>
+        <Route path = "/display" component = {DisplayInventory} />
+        <Route path = "/inventory" component = {Inventory} />
+        <Route path = "/locations" component = {LocationGrab} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return{
-    stuff: state
-  }
-}
-export default connect(mapStateToProps, {})(App);
+const WrappedComponent = Authenticate(App)
+
+export default WrappedComponent;

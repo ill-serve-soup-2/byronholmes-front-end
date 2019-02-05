@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logIn } from '../actions/userAcctActions'
 
-let user = {username: "", password: ""};
+let user = {"username": "", "password": ""};
 
 class LogIn extends Component{
   constructor(){
@@ -25,7 +25,7 @@ class LogIn extends Component{
   }
 
   render() {
-    console.log(this.props.loginInfo)
+    //console.log(this.props.loginInfo)
     return(  <div>
               <h2>Log In</h2>
               <form onSubmit = {this.logIn}>

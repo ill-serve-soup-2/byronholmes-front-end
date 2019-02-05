@@ -14,8 +14,7 @@ export const register = (user) => {
     var headers ={
       'Content-Type': 'application/json'
     }
-    var server = `https://ill-serve-soup2-db.herokuapp.com/api/useraccounts/register`
-    const promise = axios.post(`http://localhost:5000/api/useraccounts/register`, user, {headers:headers});
+    const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/useraccounts/register`, user, {headers:headers});
     return dispatch=>{
       console.log('in dispatch')
       dispatch({type: REGISTERING});
@@ -40,6 +39,7 @@ export const logIn = (credentials) => {
     console.log('in login')
     console.log(credentials)
     //let server2 = https://ill-serve-soup2-db.herokuapp.com/api/inventory/;
+  
     const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/useraccounts/login`, credentials);
     return dispatch =>{
       console.log('in dispatch')
@@ -54,6 +54,7 @@ export const logIn = (credentials) => {
         })
         .catch(err=>{
           console.log('error in login')
+          console.log(err)
           dispatch({type: LOGIN_FAILURE, error: 'Error loggin in.'})})
 
 
