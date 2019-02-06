@@ -37,11 +37,7 @@ export const logIn = (credentials) => {
     console.log('in login')
     console.log(credentials)
     //let server2 = https://ill-serve-soup2-db.herokuapp.com/api/inventory/;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> ae2533a41ab141b9bd4ce31af69d77fda63b927b
     const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/useraccounts/login`, credentials);
     return dispatch =>{
       console.log('in dispatch')
