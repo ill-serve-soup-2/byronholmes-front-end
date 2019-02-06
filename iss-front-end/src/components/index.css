@@ -1,18 +1,38 @@
 .item{
   display: flex;
-  justify-content: flex-start;
-  padding-left: 10%;
-  padding-top:3px;
-  padding-bottom: 3px;
+  justify-content:space-between;
+  align-items: center;
+  padding-top:5px;
+  padding-bottom: 5px;
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 3px;
   border:1px solid gray;
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 10px;
 
 }
+
+.button-group-1{
+display: flex;
+justify-content:space-between;
+margin-left:2%;
+
+align-content: center;
+height:30px;
+width:20%;
+}
+.item-content{
+  display: flex;
+  margin-left:2%;
+
+  width:60%;
+}
+.button-group-2{
+
+  width:20%;
+  display: flex;
+}
+
 .modal{
   display: block;
   background: black;
@@ -38,21 +58,34 @@
   display: none;
 }
 
-.item button{
+.item span{
+  display: flex;
+  line-height: 25px;
+  justify-content: center;
+
+  font-size:30px;
+  width:50%;
   margin-right:2%;
+  height: 30px;
+  border:1px solid black;
+
+
 }
 
 .update-button{
+  width:47.5%;
   background: blue;
   color:white;
 }
 .delete-button{
+  width:47.5%;
   background: red;
   color:white;
 }
 .item-container{
   display: flex;
   flex-direction: column;
+
   max-width:50%;
   margin: 0 auto;
   margin-top:30px;
@@ -63,6 +96,10 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.add-form-update{
+  display: none;
 }
 
 .container-heading{

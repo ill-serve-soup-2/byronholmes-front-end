@@ -65,12 +65,12 @@ class DisplayInventory extends Component{
     console.log(event.target.value)
   }
 
-  incrementItem = (item, id) =>{
+  incrementItem = (id, item) =>{
     item.quantity +=1;
     this.props.updateInv(id, item)
   }
 
-  decrementItem = (item, id) =>{
+  decrementItem = (id,item) =>{
     item.quantity-=1;
     this.props.updateInv(id, item)
   }
@@ -111,11 +111,11 @@ class DisplayInventory extends Component{
                 if(index<15){
                 return (<div>
                           <div key ={item.id}  className = "item">
-                          <button className = "delete-button" onClick = {(e)=>this.delete(index,item.id)}>Delete</button>
-                          <button className = "update-button" onClick={(e)=>this.update(index, item.id)}>Update</button>
-                          <div onClick = {(e)=>{this.showItem(index);this.showModal()}}>{item.name} {item.quantity} {item.units}</div>
-                          <button className = "increment-button" onClick = {(e)=>this.incrementItem(item, item.id)}>+</button>
-                          <button className = "decrement-button" onClick = {(e)=>{this.decrementItem(item, item.id)}}>-</button>
+                          <div className = "button-group-1"><button className = "delete-button" onClick = {(e)=>this.delete(index,item.id)}>Delete</button>
+                          <button className = "update-button" onClick={(e)=>this.update(index, item.id)}>Update</button></div>
+                          <div className = "item-content" onClick = {(e)=>{this.showItem(index);this.showModal()}}>{item.name} {item.quantity} {item.units}</div>
+                          <div className = "button-group-2"><button className = "increment-button" onClick = {(e)=>this.incrementItem( item.id,item)}>+</button>
+                          <button className = "decrement-button" onClick = {(e)=>{this.decrementItem( item.id,item)}}>-</button></div>
 
                           </div>
                         </div>)
