@@ -6,7 +6,7 @@ const ShoppingList = props =>{
       <h1>Shopping List</h1>
       {props.list.map((item, index)=>{
         return(
-          <div>{item.name}</div>
+          <div><button onClick = {(e)=>props.removeItem(index)}>Remove Item</button>{item.name}</div>
         )
       })}
       <button onClick = {props.closeList}>X</button>

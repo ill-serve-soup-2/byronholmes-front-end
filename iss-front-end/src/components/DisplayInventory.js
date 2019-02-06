@@ -80,6 +80,18 @@ class DisplayInventory extends Component{
     this.setState({})
   }
 
+  removeItemFromList = (index) =>{
+    let newList = [];
+    for(let i = 0; i<shoppingList.length;i++){
+      if(i!==index){
+        newList.push(shoppingList[i])
+      }
+
+    }
+    shoppingList = newList;
+    this.setState({list: shoppingList})
+  }
+
   render(){
     console.log('here in redner')
     console.log(this.props.inventory)
@@ -91,7 +103,7 @@ class DisplayInventory extends Component{
         <h2>INVENTORY</h2>
         <button onClick = {this.showList}>Shopping List</button>
         <Modal handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show} item = {this.state.selectedItem} closeModal = {(e)=>this.hideModal()} />
-        <ShoppingList showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
+        <ShoppingList removeItem = {this.removeItemFromList} showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
         <div className = "item-container">
             {
               this.props.inventory.map((item, index)=>{
