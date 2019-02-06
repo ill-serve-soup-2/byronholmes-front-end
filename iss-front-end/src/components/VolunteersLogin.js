@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loginVolunteer } from '../actions/volunteersActions'
-import { BrowserRouter } from 'react-router-dom'
-import { Redirect } from 'react-router'
 let user = {"username": "", "password": ""};
 
 class LogIn extends Component{
   constructor(){
     super()
-
+    this.state = {
+      
+    }
   }
   componentWillUpdate(){
 

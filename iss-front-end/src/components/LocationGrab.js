@@ -5,7 +5,8 @@ import { getLocations, getLocation, changeLoc,deleteLoc} from '../actions/locati
 
 class LocationGrab extends Component{
   constructor(){
-    super()
+    super();
+    this.state = {}
   }
   //ElPaso
   render(){

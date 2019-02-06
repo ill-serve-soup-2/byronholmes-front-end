@@ -15,6 +15,19 @@ export default (state = initialState, action) =>{
       return {}
     case REGISTER_VOLUNTEER_FAILURE:
       return {}
+    case LOGGING_IN:
+      return {}
+    case LOGIN_SUCCESS:
+      return {}
+    case LOGIN_FAILURE:
+      return {}
+    case FETCHING:
+      return {}
+    case FETCH_LOCATIONS_SUCCESS:
+      return {}
+    case FETCH_LOCATIONS_FAILURE:
+      return {}
+    
     default:
       return state
   }

@@ -76,13 +76,13 @@ export const deleteInv = (index, invId) => {
         })
     }
 }
-export const updateInv = (id, item) => {
+export const updateInv = (index,id, item) => {
     const promise = axios.put(`https://ill-serve-soup2-db.herokuapp.com/api/inventory/${id}`, item)
     return dispatch =>{
       dispatch({type: UPDATING_INV})
       promise
         .then(response =>{
-          dispatch({type: UPDATE_INV_SUCCESS, payload: {item: item}})
+          dispatch({type: UPDATE_INV_SUCCESS, payload: {index: index, item: item}})
         })
         .catch(err=>{
           dispatch({type: UPDATE_INV_FAILURE, error: "Error"})

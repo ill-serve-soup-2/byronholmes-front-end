@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logIn } from '../actions/userAcctActions'
-import { BrowserRouter } from 'react-router-dom'
-import { Redirect } from 'react-router'
+import './login.css'
 let user = {"username": "", "password": ""};
+
 
 class LogIn extends Component{
   constructor(){
     super()
-
+    this.state = {}
   }
   componentWillUpdate(){
 
@@ -30,15 +30,18 @@ class LogIn extends Component{
 
   render() {
     //console.log(this.props.loginInfo)
-    return(  <div>
-              <h2>Log In</h2>
-              <form onSubmit = {this.logIn}>
-                <input name = "username" onChange = {this.getInfo}  />
-                <input name = "password" onChange = {this.getInfo}  />
-                <input type = "submit" value = "Login" />
-              </form>
+    return(   <div className = "total-container">
+                <div className = "login-div">
+                  <h2>Log In</h2>
+                  <form className = "login-form" onSubmit = {this.logIn}>
+                    <input className = "text-input" name = "username" onChange = {this.getInfo} placeholder = "username" />
+                    <input className = "text-input" name = "password" onChange = {this.getInfo} placeholder = "password" />
+                    <input className = "form-input" type = "submit" value = "Login" />
+                  </form>
 
-    </div>  );
+                </div>
+              </div>
+     );
 
 
   }

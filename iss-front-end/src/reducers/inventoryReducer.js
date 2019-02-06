@@ -33,13 +33,17 @@ export default (state = initialState, action)=>{
     case DELETE_INV_SUCCESS:
 
       return{ deletingInv: false, inventory:[...state.inventory.slice(0, action.payload), ...state.inventory.slice(action.payload+1)]}
-    case DELETE_INV_SUCCESS:
-      return{...state, deletingInv: false, error: "Error deleting data"}
+  
+    case DELETE_INV_FAILURE:
+      return {}
     case UPDATING_INV:
       return{...state, updatingInv: true }
     case UPDATE_INV_SUCCESS:
 
-      return{...state, updatingInv: false, inventory: [...state.inventory]}
+      return{...state, updatingInv: false, inventory: state.inventory.slice(0, action.payload.index)
+          .concat([action.payload.item])
+          .concat(state.inventory.slice(action.payload.index+1))
+      }
     case UPDATE_INV_FAILURE:
       return{...state, updatingInv: false, error: "Error updating data"}
     default: return state;

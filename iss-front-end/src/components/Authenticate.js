@@ -19,7 +19,7 @@ const Authenticate = (App) =>
         return <App />
       }
       else{
-        return (<div><Login />        <Register/></div>
+        return (<div><Login /> </div>
 )
       }
     }

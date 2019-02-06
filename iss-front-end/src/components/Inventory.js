@@ -5,6 +5,7 @@ import { getInv, getItem,addInv,deleteInv, updateInv } from '../actions/inventor
 class Inventory extends Component {
     constructor(){
       super()
+      this.state = {}
     }
     getInv = e=>{
       this.props.getInv()

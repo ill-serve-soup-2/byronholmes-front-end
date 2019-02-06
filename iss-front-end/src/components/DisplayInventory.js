@@ -4,14 +4,11 @@ import { getInv, deleteInv, updateInv, addInv } from '../actions/inventoryAction
 import Modal from './Modal'
 import ShoppingList from './ShoppingList'
 import { connect } from 'react-redux'
-let itemsDisplay = [];
-let inventoryArr=[];
-let item = {name: "", quantity: 0, units: ""}
-let name;
-let quantity;
-let units;
-let selectedItemObject ={name: ""};
+let newItem = {name: "", quantity: 0, units: ""}
+
+//let selectedItemObject ={name: ""};
 let shoppingList = [];
+let needsRestocking = []
 
 class DisplayInventory extends Component{
   constructor(){
@@ -21,7 +18,8 @@ class DisplayInventory extends Component{
       showList: false,
       showUpdateForm: false,
       selectedItem: {name: ""},
-      list: shoppingList
+      list: shoppingList,
+      needsRestocking: needsRestocking
     }
   }
   componentDidMount(){
@@ -29,6 +27,17 @@ class DisplayInventory extends Component{
     if(localStorage.getItem("token")){
 
   }
+  }
+  componentWillUpdate(){
+
+  }
+
+  checkIfNeedsRestocking = (itemList) =>{
+    for(let i = 0; i<itemList.length;i++){
+      if(itemList[i].quantity === 0){
+        needsRestocking.push(itemList[i].id)
+      }
+    }
   }
 
   showModal = () =>{
@@ -55,8 +64,10 @@ class DisplayInventory extends Component{
     this.props.deleteInv(index, id)
   }
 
-  update = (index, id) =>{
-    this.props.updateInv(index, id, item);
+  update = (index,id) =>{
+    console.log(newItem)
+    console.log('update')
+    this.props.updateInv(index,id, newItem);
   }
   fakeMethod = () =>{
     return;
@@ -69,12 +80,13 @@ class DisplayInventory extends Component{
 
   }
   addItem = ()=>{
-    this.props.addInv(item)
+    this.props.addInv(newItem)
   }
 
   getInfo = event =>{
-    item[event.target.name]  = event.target.value
+    newItem[event.target.name]  = event.target.value
     console.log(event.target.value)
+    console.log(newItem)
   }
 
   incrementItem = (id, item) =>{
@@ -86,6 +98,10 @@ class DisplayInventory extends Component{
     if(item.quantity>0){
     item.quantity-=1;
     this.props.updateInv(id, item)}
+    else{
+      needsRestocking.push(id)
+      this.setState({needsRestocking:needsRestocking})
+    }
   }
 
   addItemToList = (item) =>{
@@ -140,7 +156,10 @@ class DisplayInventory extends Component{
 
                           </div>
                         </div>)
-              }})
+
+              }
+              return null;
+            })
             }
         </div>
 
@@ -154,7 +173,7 @@ class DisplayInventory extends Component{
 
         </form>
         <h3>Update item - Fill in form then click button to update </h3>
-        <form className = "add-form" onSubmit = {this.update}>
+        <form className = "add-form" >
           Item Name<input name = "name" onChange = {this.getInfo} />
           Quantity<input name = "quantity" onChange = {this.getInfo} />
           Units<input name = "units" onChange = {this.getInfo} />

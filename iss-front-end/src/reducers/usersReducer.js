@@ -31,12 +31,8 @@ export default (state = initialState, action)=>{
       return{...state, deletingInv: false, locations: action.payload}
     case DELETE_USER_FAILURE:
       return{...state, deletingInv: false, error: "Error deleting data"}
-    case UPDATING_USER:
-      return{...state, updatingInv: true }
-    case UPDATE_USER_SUCCESS:
-      return{...state, updatingInv: false, locations: action.payload}
-    case UPDATE_USER_FAILURE:
-      return{...state, updatingInv: false, error: "Error updating data"}
+
+    
     default: return state;
   }
 }

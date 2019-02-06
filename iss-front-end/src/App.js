@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Login from './components/LogIn'
 import Register from './components/Register'
 import Inventory from './components/Inventory'
 import LocationGrab from './components/LocationGrab'
@@ -7,7 +6,6 @@ import DisplayInventory from './components/DisplayInventory'
 import Authenticate from './components/Authenticate'
 import VolunteerRegister from './components/VolunteerRegister'
 import VolunteersLogin from './components/VolunteersLogin'
-import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom'
 
