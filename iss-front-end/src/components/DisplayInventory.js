@@ -83,8 +83,9 @@ class DisplayInventory extends Component{
   }
 
   decrementItem = (id,item) =>{
+    if(item.quantity>0){
     item.quantity-=1;
-    this.props.updateInv(id, item)
+    this.props.updateInv(id, item)}
   }
 
   addItemToList = (item) =>{
@@ -112,8 +113,6 @@ class DisplayInventory extends Component{
       <div>
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
         <div>
-        <h2>INVENTORY</h2>
-        <button onClick = {this.showList}>Shopping List</button>
         <Modal
          handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show}
           item = {this.state.selectedItem} closeModal = {this.hideModal}
@@ -122,6 +121,9 @@ class DisplayInventory extends Component{
           showFormMethod = {this.showUpdateForm}
           closeForm = {this.hideUpdateForm}
            />
+        <h2>INVENTORY</h2>
+        <button onClick = {this.showList}>Shopping List</button>
+
         <ShoppingList removeItem = {this.removeItemFromList} showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
         <div className = "item-container">
             {
