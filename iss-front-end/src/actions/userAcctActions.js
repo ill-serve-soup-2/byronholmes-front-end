@@ -48,7 +48,8 @@ export const logIn = (credentials) => {
           console.log('in response')
           console.log(response.data.token)
           localStorage.setItem("token", response.data.token)
-          dispatch({type:LOGIN_SUCCESS, payload: response.data.token})
+          dispatch({type:LOGIN_SUCCESS})
+
         })
         .catch(err=>{
           console.log('error in login')

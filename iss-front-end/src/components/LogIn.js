@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logIn } from '../actions/userAcctActions'
-
+import { BrowserRouter } from 'react-router-dom'
+import { Redirect } from 'react-router'
 let user = {"username": "", "password": ""};
 
 class LogIn extends Component{
@@ -9,9 +10,12 @@ class LogIn extends Component{
     super()
 
   }
+  componentWillUpdate(){
+
+  }
   logIn = event =>{
     event.preventDefault()
-  this.props.logIn(user)
+  this.props.logIn(user, this.props.history)
 
   /*setTimeout(function(){
     localStorage.setItem("token", this.props.loginInfo)
@@ -44,7 +48,7 @@ const mapStateToProps = state => {
   return{
     loginInfo: state.userAccounts.loginInfo,
     loggingIn: state.userAccounts.loggingIn,
-    error: state.userAccounts.error
+    error: state.userAccounts.error,
 
   }
 }

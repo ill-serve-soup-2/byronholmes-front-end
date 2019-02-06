@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './index.css'
 import { getInv, deleteInv, updateInv, addInv } from '../actions/inventoryActions'
+import Modal from './Modal'
 import { connect } from 'react-redux'
 let itemsDisplay = [];
 let inventoryArr=[];
@@ -8,16 +9,28 @@ let item = {name: "", quantity: 0, units: ""}
 let name;
 let quantity;
 let units;
+let selectedItemObject ={name: ""};
 
 class DisplayInventory extends Component{
   constructor(){
-    super()
+    super();
+    this.state = {
+      show: false,
+      selectedItem: {name: ""}
+    }
   }
   componentDidMount(){
     this.props.getInv()
     if(localStorage.getItem("token")){
 
   }
+  }
+
+  showModal = () =>{
+    this.setState({show:true})
+  }
+  hideModal = () =>{
+    this.setState({show:false})
   }
   delete = (id)=>{
     this.props.deleteInv(id)
@@ -28,7 +41,10 @@ class DisplayInventory extends Component{
   }
 
   showItem = (index) =>{
-    console.log(this.props.inventory[index].name)
+    console.log('in showitem')
+
+    this.setState({selectedItem: this.props.inventory[index]})
+
   }
   addItem = ()=>{
     this.props.addInv(item)
@@ -57,14 +73,14 @@ class DisplayInventory extends Component{
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
         <div>
         <h2>INVENTORY</h2>
-
+        <Modal show = {this.state.show} item = {this.state.selectedItem} closeModal = {(e)=>this.hideModal()} />
         <div className = "item-container">
             {
               this.props.inventory.map((item, index)=>{
+
                 if(index<15){
                 return (<div>
-
-                          <div key ={item.id} onClick = {(e)=>this.showItem(index)} className = "item">
+                          <div key ={item.id} onClick = {(e)=>{this.showItem(index);this.showModal()}} className = "item">
                           <button className = "delete-button" onClick = {(e)=>this.delete(item.id)}>Delete</button>
                           <button className = "update-button" onClick={(e)=>this.update(item.id)}>Update</button>
                           {item.name} {item.quantity} {item.units}

@@ -13,6 +13,17 @@
   margin-bottom: 10px;
 
 }
+.modal{
+  display: block;
+  background: black;
+  color: white;
+  font-size:16px;
+  height:100vh;
+}
+.modal-hidden{
+  display: none;
+}
+
 .item button{
   margin-right:2%;
 }
