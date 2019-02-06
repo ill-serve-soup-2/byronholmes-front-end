@@ -3,7 +3,7 @@ const initialState = {
   registering: false,
   error:null,
   loggingIn: false,
-  loginInfo: localStorage.getItem("token"),
+  loginInfo: false,
   registration: null,
   isLoggedIn: null
 }
@@ -21,7 +21,7 @@ export default (state = initialState, action)=>{
     case LOGIN_SUCCESS:
       console.log('in login success')
 
-      return{ loggingIn: false}
+      return{ loggingIn: false, loginInfo: action.payload}
     case LOGIN_FAILURE:
       return{ loggingIn: true, error: "Error logging in."}
 

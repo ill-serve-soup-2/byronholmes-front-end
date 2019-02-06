@@ -5,7 +5,7 @@ import Modal from './Modal'
 import ShoppingList from './ShoppingList'
 import { connect } from 'react-redux'
 let newItem = {name: "", quantity: 0, units: ""}
-
+let items = []
 //let selectedItemObject ={name: ""};
 let shoppingList = [];
 let needsRestocking = []
@@ -23,23 +23,23 @@ class DisplayInventory extends Component{
     }
   }
   componentDidMount(){
-    this.props.getInv()
-    if(localStorage.getItem("token")){
+  this.props.getInv()
 
-  }
+
   }
   componentWillUpdate(){
 
+
+
   }
 
-  checkIfNeedsRestocking = (itemList) =>{
-    for(let i = 0; i<itemList.length;i++){
-      if(itemList[i].quantity === 0){
-        needsRestocking.push(itemList[i].id)
-      }
+
+  flagNeedToBuy = (item)=>{
+    if(item.quantity <=0){
+      return true
     }
+    return false;
   }
-
   showModal = () =>{
     this.setState({show:true})
   }
@@ -89,15 +89,15 @@ class DisplayInventory extends Component{
     console.log(newItem)
   }
 
-  incrementItem = (id, item) =>{
+  incrementItem = (index, id, item) =>{
     item.quantity +=1;
-    this.props.updateInv(id, item)
+    this.props.updateInv(index,id, item)
   }
 
-  decrementItem = (id,item) =>{
+  decrementItem = (index,id,item) =>{
     if(item.quantity>0){
     item.quantity-=1;
-    this.props.updateInv(id, item)}
+    this.props.updateInv(index,id, item)}
     else{
       needsRestocking.push(id)
       this.setState({needsRestocking:needsRestocking})
@@ -122,13 +122,14 @@ class DisplayInventory extends Component{
   }
 
   render(){
-    console.log('here in redner')
-    console.log(this.props.inventory)
+
 
     return(
       <div>
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
+
         <div>
+
         <Modal
          handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show}
           item = {this.state.selectedItem} closeModal = {this.hideModal}
@@ -150,9 +151,11 @@ class DisplayInventory extends Component{
                           <div key ={item.id}  className = "item">
                           <div className = "button-group-1"><button className = "delete-button" onClick = {(e)=>this.delete(index,item.id)}>Delete</button>
                           <button className = "update-button" onClick={(e)=>this.update(index, item.id)}>Update</button></div>
-                          <div className = "item-content" onClick = {(e)=>{this.showItem(index);this.showModal()}}>{item.name} {item.quantity} {item.units}</div>
-                          <div className = "button-group-2"><button className = "increment-button" onClick = {(e)=>this.incrementItem( item.id,item)}>+</button>
-                          <button className = "decrement-button" onClick = {(e)=>{this.decrementItem( item.id,item)}}>-</button></div>
+                          <div className = "item-content" onClick = {(e)=>{this.showItem(index);this.showModal()}}>{item.name}
+                          {item.quantity} {item.units} <div className = {this.flagNeedToBuy(item) ? 'buy-alert' : 'no-buy-alert'}>Order</div></div>
+                          <div className = "button-group-2">
+                          <button className = "increment-button" onClick = {(e)=>this.incrementItem( index,item.id,item)}>+</button>
+                          <button className = "decrement-button" onClick = {(e)=>{this.decrementItem(index, item.id,item)}}>-</button></div>
 
                           </div>
                         </div>)

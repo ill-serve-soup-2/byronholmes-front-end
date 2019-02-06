@@ -33,14 +33,12 @@ width:20%;
   display: flex;
 }
 
-.modal{
-  display: block;
-  background: black;
-  color: white;
-  font-size:16px;
-  height:100vh;
+
+.buy-alert{
+  font-size:.4em;
+  color:red;
 }
-.modal-hidden{
+.no-buy-alert{
   display: none;
 }
 

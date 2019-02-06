@@ -15,8 +15,8 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Route path ="/register" component = {Register}/>
-        <Route path = "/display" component = {DisplayInventory} />
+
+        <Route exact path = "/" component = {DisplayInventory} />
         <Route path = "/inventory" component = {Inventory} />
         <Route path = "/locations" component = {LocationGrab} />
         <Route path = "/volunteerRegister" component = {VolunteerRegister} />

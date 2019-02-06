@@ -2,16 +2,27 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logIn } from '../actions/userAcctActions'
 import './login.css'
+import { Redirect } from 'react-router-dom'
 let user = {"username": "", "password": ""};
-
-
+let loggedInVar;
 class LogIn extends Component{
   constructor(){
     super()
-    this.state = {}
+    this.state = {loggedIn:loggedInVar}
+  }
+  componentWillMount(){
+    this.redirectToApp();
   }
   componentWillUpdate(){
-
+    console.log('updating')
+    this.redirectToApp()
+  }
+  redirectToApp = () =>{
+    console.log('in redirect app')
+    console.log(loggedInVar)
+    if(loggedInVar){
+      return <Redirect to = "/" />
+    }
   }
   logIn = event =>{
     event.preventDefault()
@@ -29,8 +40,12 @@ class LogIn extends Component{
   }
 
   render() {
-    //console.log(this.props.loginInfo)
-    return(   <div className = "total-container">
+
+    loggedInVar = this.props.loginInfo;
+    console.log(this.props.loginInfo)
+    return(
+       <div className = "total-container">
+              {this.redirectToApp()}
                 <div className = "login-div">
                   <h2>Log In</h2>
                   <form className = "login-form" onSubmit = {this.logIn}>
