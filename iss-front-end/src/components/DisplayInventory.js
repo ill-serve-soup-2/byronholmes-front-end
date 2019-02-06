@@ -19,6 +19,7 @@ class DisplayInventory extends Component{
     this.state = {
       show: false,
       showList: false,
+      showUpdateForm: false,
       selectedItem: {name: ""},
       list: shoppingList
     }
@@ -35,6 +36,14 @@ class DisplayInventory extends Component{
   }
   hideModal = () =>{
     this.setState({show:false})
+  }
+  showUpdateForm = () =>{
+    this.setState({showUpdateForm: true})
+  }
+  hideUpdateForm = (e) =>{
+    e.preventDefault();
+    this.setState({showUpdateForm: false})
+    console.log(this.state)
   }
   showList = () =>{
     this.setState({showList: true})
@@ -102,7 +111,14 @@ class DisplayInventory extends Component{
         <div>
         <h2>INVENTORY</h2>
         <button onClick = {this.showList}>Shopping List</button>
-        <Modal handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show} item = {this.state.selectedItem} closeModal = {(e)=>this.hideModal()} />
+        <Modal
+         handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show}
+          item = {this.state.selectedItem} closeModal = {this.hideModal}
+          addItem = {this.update} getInfo={this.getInfo}
+          showForm = {this.state.showUpdateForm}
+          showFormMethod = {this.showUpdateForm}
+          closeForm = {this.hideUpdateForm}
+           />
         <ShoppingList removeItem = {this.removeItemFromList} showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
         <div className = "item-container">
             {
@@ -122,6 +138,7 @@ class DisplayInventory extends Component{
               }})
             }
         </div>
+
         <h3>Add an item</h3>
         <form className = "add-form" onSubmit = {this.addItem}>
           Item Name<input name = "name" onChange = {this.getInfo} />
