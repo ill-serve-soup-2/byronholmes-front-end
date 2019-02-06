@@ -58,6 +58,9 @@ class DisplayInventory extends Component{
   update = (index, id) =>{
     this.props.updateInv(index, id, item);
   }
+  fakeMethod = () =>{
+    return;
+  }
 
   showItem = (index) =>{
     console.log('in showitem')
