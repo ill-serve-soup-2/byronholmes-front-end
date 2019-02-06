@@ -1,0 +1,19 @@
+import {REGISTERING_VOLUNTEER, REGISTER_VOLUNTEER_SUCCESS, REGISTER_VOLUNTEER_FAILURE,LOGGING_IN, LOGIN_SUCCESS, LOGIN_FAILURE,FETCHING, FETCH_LOCATIONS_SUCCESS, FETCH_LOCATIONS_FAILURE } from '../actions/volunteerActions'
+
+const initialState = {
+
+}
+
+
+export default (state = initialState, action) =>{
+  switch(action.type){
+    case REGISTERING_VOLUNTEER:
+      return {}
+    case REGISTER_VOLUNTEER_SUCCESS:
+      return {}
+    case REGISTER_VOLUNTEER_FAILURE:
+      return {}
+    default:
+      return state
+  }
+}
