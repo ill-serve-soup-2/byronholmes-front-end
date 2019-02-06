@@ -69,7 +69,7 @@ export const addInv = (item) => {
     };
 }
 
-export const deleteInv = (invId) => {
+export const deleteInv = (index, invId) => {
     const promise = axios.delete(`https://ill-serve-soup2-db.herokuapp.com/api/inventory/${invId}`)
     return dispatch=>{
       console.log('in delete dispatch')
@@ -78,14 +78,14 @@ export const deleteInv = (invId) => {
       promise
         .then(response=>{
           console.log(response.data)
-          dispatch({type: DELETE_INV_SUCCESS, payload: response.data})
+          dispatch({type: DELETE_INV_SUCCESS, payload: index})
         })
         .catch(err=>{
           dispatch({type: DELETE_INV_FAILURE})
         })
     }
 }
-export const updateInv = (id, item) => {
+export const updateInv = (index, id, item) => {
     const promise = axios.put(`https://ill-serve-soup2-db.herokuapp.com/api/inventory/${id}`, item)
     return dispatch =>{
       console.log('in update dispatch')
@@ -93,7 +93,7 @@ export const updateInv = (id, item) => {
       promise
         .then(response =>{
           console.log(response.data)
-          dispatch({type: UPDATE_INV_SUCCESS, payload: response.data})
+          dispatch({type: UPDATE_INV_SUCCESS, payload: {item: item, index: index}})
         })
         .catch(err=>{
           dispatch({type: UPDATE_INV_FAILURE, error: "Error"})

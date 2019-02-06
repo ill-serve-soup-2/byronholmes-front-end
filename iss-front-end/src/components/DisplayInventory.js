@@ -42,12 +42,12 @@ class DisplayInventory extends Component{
   hideList = () =>{
     this.setState({showList: false})
   }
-  delete = (id)=>{
-    this.props.deleteInv(id)
+  delete = (index, id)=>{
+    this.props.deleteInv(index, id)
   }
 
-  update = (id) =>{
-    this.props.updateInv(id, item);
+  update = (index, id) =>{
+    this.props.updateInv(index, id, item);
   }
 
   showItem = (index) =>{
@@ -81,7 +81,8 @@ class DisplayInventory extends Component{
   }
 
   render(){
-
+    console.log('here in redner')
+    console.log(this.props.inventory)
 
     return(
       <div>
@@ -97,12 +98,13 @@ class DisplayInventory extends Component{
 
                 if(index<15){
                 return (<div>
-                          <div key ={item.id} onClick = {(e)=>{this.showItem(index);this.showModal()}} className = "item">
-                          <button className = "delete-button" onClick = {(e)=>this.delete(item.id)}>Delete</button>
-                          <button className = "update-button" onClick={(e)=>this.update(item.id)}>Update</button>
-                          {item.name} {item.quantity} {item.units}
+                          <div key ={item.id}  className = "item">
+                          <button className = "delete-button" onClick = {(e)=>this.delete(index,item.id)}>Delete</button>
+                          <button className = "update-button" onClick={(e)=>this.update(index, item.id)}>Update</button>
+                          <div onClick = {(e)=>{this.showItem(index);this.showModal()}}>{item.name} {item.quantity} {item.units}</div>
                           <button className = "increment-button" onClick = {(e)=>this.incrementItem(item, item.id)}>+</button>
                           <button className = "decrement-button" onClick = {(e)=>{this.decrementItem(item, item.id)}}>-</button>
+
                           </div>
                         </div>)
               }})
@@ -143,4 +145,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps,{getInv, deleteInv, updateInv, addInv})(DisplayInventory);
+export default connect(mapStateToProps,{getInv: getInv, deleteInv: deleteInv, updateInv: updateInv, addInv: addInv})(DisplayInventory);
