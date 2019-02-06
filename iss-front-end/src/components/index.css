@@ -24,6 +24,20 @@
   display: none;
 }
 
+.shopping-list{
+  display: block;
+  margin: 0 auto;
+  background: red;
+  color: white;
+  font-size:16px;
+  height:100vh;
+
+}
+
+.shopping-list-hidden{
+  display: none;
+}
+
 .item button{
   margin-right:2%;
 }

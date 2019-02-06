@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './index.css'
 import { getInv, deleteInv, updateInv, addInv } from '../actions/inventoryActions'
 import Modal from './Modal'
+import ShoppingList from './ShoppingList'
 import { connect } from 'react-redux'
 let itemsDisplay = [];
 let inventoryArr=[];
@@ -10,13 +11,16 @@ let name;
 let quantity;
 let units;
 let selectedItemObject ={name: ""};
+let shoppingList = [];
 
 class DisplayInventory extends Component{
   constructor(){
     super();
     this.state = {
       show: false,
-      selectedItem: {name: ""}
+      showList: false,
+      selectedItem: {name: ""},
+      list: shoppingList
     }
   }
   componentDidMount(){
@@ -31,6 +35,12 @@ class DisplayInventory extends Component{
   }
   hideModal = () =>{
     this.setState({show:false})
+  }
+  showList = () =>{
+    this.setState({showList: true})
+  }
+  hideList = () =>{
+    this.setState({showList: false})
   }
   delete = (id)=>{
     this.props.deleteInv(id)
@@ -65,6 +75,11 @@ class DisplayInventory extends Component{
     this.props.updateInv(id, item)
   }
 
+  addItemToList = (item) =>{
+    shoppingList.push(item);
+    this.setState({})
+  }
+
   render(){
 
 
@@ -73,7 +88,9 @@ class DisplayInventory extends Component{
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
         <div>
         <h2>INVENTORY</h2>
-        <Modal show = {this.state.show} item = {this.state.selectedItem} closeModal = {(e)=>this.hideModal()} />
+        <button onClick = {this.showList}>Shopping List</button>
+        <Modal handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show} item = {this.state.selectedItem} closeModal = {(e)=>this.hideModal()} />
+        <ShoppingList showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
         <div className = "item-container">
             {
               this.props.inventory.map((item, index)=>{
