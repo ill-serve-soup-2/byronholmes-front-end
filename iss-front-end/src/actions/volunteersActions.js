@@ -41,6 +41,7 @@ export const loginVolunteer = (credentials) =>{
 
 export const findVolunteerPlaces = ()=>{
   const promise = axios.get(`https://ill-serve-soup2-db.herokuapp.com/api/locations`)
+  return dispatch =>{
   dispatch({type:FETCHING})
   promise
     .then(response=>{
@@ -49,4 +50,4 @@ export const findVolunteerPlaces = ()=>{
     .catch(err=>{
       dispatch({type:FETCH_LOCATIONS_FAILURE})
     })
-}
+}}
