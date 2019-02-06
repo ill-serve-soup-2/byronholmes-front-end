@@ -31,7 +31,6 @@ export default (state = initialState, action)=>{
     case DELETING_INV:
       return{...state, deletingInv: true}
     case DELETE_INV_SUCCESS:
-      console.log('delete in reducer')
 
       return{ deletingInv: false, inventory:[...state.inventory.slice(0, action.payload), ...state.inventory.slice(action.payload+1)]}
     case DELETE_INV_SUCCESS:

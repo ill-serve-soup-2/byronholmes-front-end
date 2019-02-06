@@ -19,10 +19,8 @@ export const UPDATE_INV_FAILURE = "UPDATE_FAILURE";
 
 export const getInv = () => {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
-    console.log('getinv')
     const promise = axios.get(`https://ill-serve-soup2-db.herokuapp.com/api/inventory`);
     return dispatch=>{
-      console.log('in dispatch of getinv')
       dispatch({type: FETCHING_INV});
       promise
         .then(response=>{
@@ -36,13 +34,11 @@ export const getInv = () => {
     }
 }
 export const getItem = (id) => {
-    console.log('getitem')
     const promise = axios.get(`https://ill-serve-soup2-db.herokuapp.com/api/inventory/${id}`);
     return dispatch=>{
       dispatch({type: FETCHING_INV_ITEM});
       promise
         .then(response=>{
-          console.log(response.data)
           dispatch({type:FETCH_INV_ITEM_SUCCESS, payload: response.data})
         })
         .catch(err=>{
@@ -52,15 +48,12 @@ export const getItem = (id) => {
     }
 }
 export const addInv = (item) => {
-    console.log('in adinv')
-    console.log(item)
+
     const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/inventory`, item)
     return dispatch=>{
-      console.log('in addInv dispatch')
       dispatch({type:POSTING_INV});
       promise
         .then(response=>{
-          console.log(response.data)
           dispatch({type: POST_INV_SUCCESS, payload: response.data})
         })
         .catch(err=>{
@@ -72,12 +65,10 @@ export const addInv = (item) => {
 export const deleteInv = (index, invId) => {
     const promise = axios.delete(`https://ill-serve-soup2-db.herokuapp.com/api/inventory/${invId}`)
     return dispatch=>{
-      console.log('in delete dispatch')
 
       dispatch({type: DELETING_INV})
       promise
         .then(response=>{
-          console.log(response.data)
           dispatch({type: DELETE_INV_SUCCESS, payload: index})
         })
         .catch(err=>{
@@ -88,11 +79,9 @@ export const deleteInv = (index, invId) => {
 export const updateInv = (index, id, item) => {
     const promise = axios.put(`https://ill-serve-soup2-db.herokuapp.com/api/inventory/${id}`, item)
     return dispatch =>{
-      console.log('in update dispatch')
       dispatch({type: UPDATING_INV})
       promise
         .then(response =>{
-          console.log(response.data)
           dispatch({type: UPDATE_INV_SUCCESS, payload: {item: item, index: index}})
         })
         .catch(err=>{
