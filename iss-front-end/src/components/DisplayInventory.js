@@ -39,23 +39,43 @@ class DisplayInventory extends Component{
     console.log(event.target.value)
   }
 
+  incrementItem = (item,id)=>{
+    item.quantity +=1
+    console.log('increment')
+    console.log('quantity')
+    console.log(item.quantity);
+    this.props.updateInv(id,item )
+  }
+
+  decrementItem = (item,id) =>{
+    item.quantity -=1
+    console.log('decrement')
+    console.log('quantity')
+    console.log(item.quantity)
+    this.props.updateInv(id,item)
+  }
+
   render(){
 
 
     return(
+
       <div>
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
         <div>
         <h2>INVENTORY</h2>
 
         <div className = "item-container">
+            <div className = "container-heading"><span>Item</span><span>Quantity</span><span>Units</span></div>
             {
               this.props.inventory.map((item, index)=>{
                 if(index<15){
                 return (<div>
 
                 <div key ={item.id} onClick = {(e)=>this.showItem(index)} className = "item"><button className = "delete-button" onClick = {(e)=>this.delete(item.id)}>Delete</button>
-                <button className = "update-button" onClick={(e)=>this.update(item.id)}>Update</button>{item.name} {item.quantity} {item.units}</div></div>)
+                <button className = "update-button" onClick={(e)=>this.update(item.id)}>Update</button>{item.name} {item.quantity} {item.units} <button onClick = {(e)=>{this.incrementItem(item,item.id)}}>+</button><button onClick = {(e)=>{this.decrementItem(item,item.id)}}>-</button></div>
+
+                </div>)
               }})
             }
         </div>

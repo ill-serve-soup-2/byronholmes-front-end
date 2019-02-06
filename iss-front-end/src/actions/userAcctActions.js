@@ -9,8 +9,6 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
 
 export const register = (user) => {
-    console.log('in register')
-    console.log(user)
     var headers ={
       'Content-Type': 'application/json'
     }
@@ -39,7 +37,7 @@ export const logIn = (credentials) => {
     console.log('in login')
     console.log(credentials)
     //let server2 = https://ill-serve-soup2-db.herokuapp.com/api/inventory/;
-  
+
     const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/useraccounts/login`, credentials);
     return dispatch =>{
       console.log('in dispatch')

@@ -17,7 +17,6 @@ class Register extends Component{
 
   register = event =>{
       event.preventDefault();
-      console.log(this.state)
       this.props.register(this.state)
   }
 
