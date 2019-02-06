@@ -2,12 +2,18 @@
   display: flex;
   justify-content: flex-start;
   padding-left: 10%;
+<<<<<<< HEAD
   padding-top:3px;
   padding-bottom: 3px;
   max-width: 100%;
   margin: 0 auto;
   margin-bottom: 3px;
   border:1px solid gray;
+=======
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+>>>>>>> ae2533a41ab141b9bd4ce31af69d77fda63b927b
 
 }
 .item button{
@@ -36,9 +42,12 @@
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
 
 .container-heading{
   width:100%;
   display: flex;
   justify-content: space-between;
 }
+=======
+>>>>>>> ae2533a41ab141b9bd4ce31af69d77fda63b927b

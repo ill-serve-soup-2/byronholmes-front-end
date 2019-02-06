@@ -14,6 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+<<<<<<< HEAD
+=======
+        <Login />
+>>>>>>> ae2533a41ab141b9bd4ce31af69d77fda63b927b
         <Route path ="/register" component = {Register}/>
         <Route path = "/display" component = {DisplayInventory} />
         <Route path = "/inventory" component = {Inventory} />
