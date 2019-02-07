@@ -24,7 +24,8 @@ class DisplayInventory extends Component{
       showUpdateForm: false,
       selectedItem: {name: ""},
       list: shoppingList,
-      needsRestocking: needsRestocking
+      needsRestocking: needsRestocking,
+      loggedIn: true
     }
   }
   componentDidMount(){
@@ -32,12 +33,16 @@ class DisplayInventory extends Component{
 
 
   }
+
   componentWillUpdate(){
 
 
 
   }
+  logOut = () =>{
+    localStorage.removeItem("token")
 
+  }
 
   flagNeedToBuy = (item)=>{
     if(item.quantity <=0){
@@ -179,6 +184,8 @@ class DisplayInventory extends Component{
            <div className = "button-menu">
             <div className = "button-menu-button" onClick = {this.showList}>Shopping List</div>
             <div className = "button-menu-button" onClick = {this.showAddForm}>Add Item </div>
+            <div className = "button-menu-button" onClick = {this.logOut}>Log Out</div>
+
            </div>
         <div className = "item-container">
         <div className ="inventory-header">
