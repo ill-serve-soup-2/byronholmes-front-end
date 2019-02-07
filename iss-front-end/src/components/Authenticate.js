@@ -17,7 +17,7 @@ const Authenticate = (App) =>
       console.log(localStorage.getItem("token"))
       return(
         <div>
-        {this.state.loggedIn ? <App /> : <Login />}
+        {this.state.loggedIn ? <App /> : <div><Login /> <Register /></div>}
     </div>)
 
 
@@ -28,22 +28,17 @@ export default Authenticate;
 
 /*    componentDidMount(){
       console.log('component did mount in auth')
-
       if(localStorage.getItem("token") !== null){
         this.setState({loggedIn: true}, ()=>{console.log(this.state.loggedIn)})
       }
-
     }
-
     checkIfLoggedIn = ()=>{
       if(localStorage.getItem("token") !== null){
         this.setState({loggedIn: true})
       }
     }
     render(){
-
       if(this.state.loggedIn){
-
         return <App />
       }
       else{

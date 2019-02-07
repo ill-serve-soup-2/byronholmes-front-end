@@ -135,7 +135,9 @@ width:20%;
 }
 
 
-
+.qty-input{
+  width:20%;
+}
 .container-heading{
   width:100%;
   display: flex;

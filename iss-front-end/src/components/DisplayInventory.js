@@ -10,6 +10,7 @@ let items = []
 //let selectedItemObject ={name: ""};
 let shoppingList = [];
 let needsRestocking = []
+let qtyToUpdate = 0;
 
 class DisplayInventory extends Component{
   constructor(){
@@ -100,20 +101,25 @@ class DisplayInventory extends Component{
   }
 
   incrementItem = (index, id, item) =>{
-    item.quantity +=1;
+    item.quantity += qtyToUpdate
+
     this.props.updateInv(index,id, item)
   }
 
-  decrementItem = (index,id,item) =>{
-    if(item.quantity>0){
-    item.quantity-=1;
-    this.props.updateInv(index,id, item)}
-    else{
-      needsRestocking.push(id)
-      this.setState({needsRestocking:needsRestocking})
-    }
+  decrementItem = (index, id, item) =>{
+    item.quantity -= qtyToUpdate
+
+    this.props.updateInv(index,id, item)
   }
 
+
+  updateQty = (e)=>{
+    qtyToUpdate += parseInt(e.target.value)
+    console.log(qtyToUpdate)
+
+
+
+  }
   addItemToList = (item) =>{
     shoppingList.push(item);
     this.setState({})
@@ -172,8 +178,11 @@ class DisplayInventory extends Component{
                             <div className = {this.flagNeedToBuy(item) ? 'buy-alert' : 'no-buy-alert'}>Order</div>
                           </div>
                           <div className = "button-group-2">
+                          <input onChange = {(e)=>this.updateQty(e)} className = "qty-input" placeholder = "qty" />
                           <button className = "increment-button" onClick = {(e)=>this.incrementItem( index,item.id,item)}>+</button>
-                          <button className = "decrement-button" onClick = {(e)=>{this.decrementItem(index, item.id,item)}}>-</button></div>
+                          <button className = "decrement-button" onClick = {(e)=>this.decrementItem( index,item.id,item)}>-</button>
+
+                        </div>
 
                           </div>
                         </div>)

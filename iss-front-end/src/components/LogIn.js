@@ -10,10 +10,10 @@ let loggedInVar;
 class LogIn extends Component{
   constructor(){
     super()
-    this.state = {loggedIn:false}
+    this.state = {loggedIn:true}
   }
   componentWillMount(){
-    
+
 
   }
 
@@ -38,8 +38,8 @@ class LogIn extends Component{
 
     console.log(this.state.loggedIn)
     return(
-      <div>
-          {this.state.loggedIn ? (<Redirect to = "/" />):
+    
+
             (<div className = "form-container-wrapper">
               <div className = "login-form-container">
                   <div className = "form-header">
@@ -53,8 +53,8 @@ class LogIn extends Component{
                     </form>
                   </div>
               </div>
-            </div>)}
-          </div>
+            </div>)
+
      );
 
 
