@@ -48,7 +48,7 @@ class LogIn extends Component{
                   <div className = "form">
                     <form className = "form-form" onSubmit = {this.logIn}>
                       <input onChange = {this.getInfo} className = "text-input" name = "username" placeholder="Enter username..." />
-                      <input onChange = {this.getInfo} className = "text-input" name = "password" placeholder="Enter password..." />
+                      <input type="password" onChange = {this.getInfo} className = "text-input" name = "password" placeholder="Enter password..." />
                       <input type = "submit" className = "submit-form" value = "Login" />
                     </form>
                   </div>

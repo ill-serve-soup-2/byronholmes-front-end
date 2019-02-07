@@ -40,11 +40,6 @@ body {
   width: 20%;
   margin: 0 auto;
 }
-
-.regButton {
-  background: #EF5E4A;
-}
-
 .regButton:hover {
   color: #EF5E4A;
 }
