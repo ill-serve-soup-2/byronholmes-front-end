@@ -9,14 +9,18 @@ import VolunteersLogin from './components/VolunteersLogin'
 import LocationFinder from './components/LocationFinder'
 import './App.css';
 import { Route } from 'react-router-dom'
-
+import {NavLink } from 'react-router-dom'
 
 class App extends Component {
   render() {
     console.log('app')
     return (
       <div className="App">
-
+      <NavLink to="/display">DisplayInventory</NavLink>
+      <NavLink to="inventory"></NavLink>
+      <NavLink to="locations">Locations</NavLink>
+      <NavLink to="volunteerRegister">Register Volunteer</NavLink>
+      <NavLink to="volunteerLogin">Login Volunteer</NavLink>
         <Route exact path = "/" component = {DisplayInventory} />
         <Route path = "/display" component = {DisplayInventory} />
         <Route path = "/inventory" component = {Inventory} />
