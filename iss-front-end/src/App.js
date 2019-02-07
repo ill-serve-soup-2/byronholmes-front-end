@@ -13,10 +13,11 @@ import { Route } from 'react-router-dom'
 
 class App extends Component {
   render() {
+    console.log('app')
     return (
       <div className="App">
 
-
+        <Route exact path = "/" component = {DisplayInventory} />
         <Route path = "/display" component = {DisplayInventory} />
         <Route path = "/inventory" component = {Inventory} />
         <Route path = "/locations" component = {LocationFinder} />

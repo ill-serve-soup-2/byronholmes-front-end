@@ -54,7 +54,7 @@ export const addInv = (item) => {
       dispatch({type:POSTING_INV});
       promise
         .then(response=>{
-          dispatch({type: POST_INV_SUCCESS, payload: response.data})
+          dispatch({type: POST_INV_SUCCESS, payload: item})
         })
         .catch(err=>{
           dispatch({type: POST_INV_FAILURE})

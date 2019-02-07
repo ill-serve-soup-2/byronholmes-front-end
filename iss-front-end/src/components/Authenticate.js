@@ -8,10 +8,25 @@ const Authenticate = (App) =>
     constructor(){
       super();
       this.state={
-        loggedIn: loggedInVar
+        loggedIn: !(localStorage.getItem("token")===null)
       }
     }
-    componentDidMount(){
+
+    render(){
+      loggedInVar = this.state.loggedIn
+      console.log(localStorage.getItem("token"))
+      return(
+        <div>
+        {this.state.loggedIn ? <App /> : <Login />}
+    </div>)
+
+
+  }}
+
+export default Authenticate;
+
+
+/*    componentDidMount(){
       console.log('component did mount in auth')
 
       if(localStorage.getItem("token") !== null){
@@ -19,7 +34,7 @@ const Authenticate = (App) =>
       }
 
     }
-    
+
     checkIfLoggedIn = ()=>{
       if(localStorage.getItem("token") !== null){
         this.setState({loggedIn: true})
@@ -35,7 +50,4 @@ const Authenticate = (App) =>
         return (<div><Login /> <Register /></div>
 )
       }
-    }
-  }
-
-export default Authenticate;
+    }*/

@@ -1,20 +1,31 @@
 .form-container{
+  display:block;
   width:30%;
   margin: 0 auto;
+  position:fixed;
+  left: 35%;
+  top:25%;
 
+}
+.form-container-hidden{
+  display:none;
 }
 
 .form-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-family: sans-serif;
   background: #2e3842;
   color:white;
   padding: 1px 5%;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-    background: #1f262d;
+  background: #1f262d;
 }
 
 .form-header h3{
+
   font-size:16px;
   font-weight: light;
 }
@@ -58,7 +69,16 @@
   outline: none;
   border: 0px solid;
 }
-
+.close-form{
+  background-image: url("../assets/x-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:30px;
+  width:10%;
+  padding-top: 5px;
+  font-size:36px;
+  font-weight: 600;
+}
 .submit-form{
   width: 90%;
   margin: 0 auto;

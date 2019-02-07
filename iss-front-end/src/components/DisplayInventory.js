@@ -15,7 +15,8 @@ class DisplayInventory extends Component{
   constructor(){
     super();
     this.state = {
-      show: false,
+      showModal: false,
+      showAddItemForm: false,
       showList: false,
       showUpdateForm: false,
       selectedItem: {name: ""},
@@ -42,10 +43,10 @@ class DisplayInventory extends Component{
     return false;
   }
   showModal = () =>{
-    this.setState({show:true})
+    this.setState({showModal:true})
   }
   hideModal = () =>{
-    this.setState({show:false})
+    this.setState({showModal:false})
   }
   showUpdateForm = () =>{
     this.setState({showUpdateForm: true})
@@ -57,6 +58,12 @@ class DisplayInventory extends Component{
   }
   showList = () =>{
     this.setState({showList: true})
+  }
+  showAddForm = () =>{
+    this.setState({showAddItemForm: true})
+  }
+  closeAddForm = () =>{
+    this.setState({showAddItemForm: false})
   }
   hideList = () =>{
     this.setState({showList: false})
@@ -79,8 +86,10 @@ class DisplayInventory extends Component{
 
     this.setState({selectedItem: this.props.inventory[index]})
 
+
   }
-  addItem = ()=>{
+  addItem = (e)=>{
+    e.preventDefault();
     this.props.addInv(newItem)
   }
 
@@ -130,9 +139,9 @@ class DisplayInventory extends Component{
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
 
         <div>
-        <AddItemForm />
+        <AddItemForm show = {this.state.showAddItemForm} submitHandler={this.addItem} closeForm = {this.closeAddForm} handleChange = {this.getInfo}/>
         <Modal
-         handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show}
+         handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.showModal}
           item = {this.state.selectedItem} closeModal = {this.hideModal}
           addItem = {this.update} getInfo={this.getInfo}
           showForm = {this.state.showUpdateForm}
@@ -140,8 +149,10 @@ class DisplayInventory extends Component{
           closeForm = {this.hideUpdateForm}
            />
            <ShoppingList removeItem = {this.removeItemFromList} showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
-           <button onClick = {this.showList}>Shopping List</button>
-
+           <div className = "button-menu">
+            <div className = "button-menu-button" onClick = {this.showList}>Shopping List</div>
+            <div className = "button-menu-button" onClick = {this.showAddForm}>Add Item </div>
+           </div>
         <div className = "item-container">
         <div className ="inventory-header">
         <h2>INVENTORY</h2>
@@ -174,14 +185,7 @@ class DisplayInventory extends Component{
         </div>
 
         <h3>Add an item</h3>
-        <form className = "add-form" onSubmit = {this.addItem}>
-          Item Name<input name = "name" onChange = {this.getInfo} />
-          Quantity<input name = "quantity" onChange = {this.getInfo} />
-          Units<input name = "units" onChange = {this.getInfo} />
-          <input type = "submit" value = "Add Item" />
 
-
-        </form>
         <h3>Update item - Fill in form then click button to update </h3>
         <form className = "add-form" >
           Item Name<input name = "name" onChange = {this.getInfo} />

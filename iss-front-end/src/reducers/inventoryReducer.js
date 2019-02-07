@@ -25,7 +25,7 @@ export default (state = initialState, action)=>{
     case POSTING_INV:
       return{...state, postingInv: true}
     case POST_INV_SUCCESS:
-      return{...state, postingInv: false, inventory: action.payload}
+      return{...state, postingInv: false, inventory: [...state.inventory.concat(action.payload)]}
     case POST_INV_FAILURE:
       return{...state, postingInv: false, error: "Error posting data"}
     case DELETING_INV:
@@ -33,7 +33,7 @@ export default (state = initialState, action)=>{
     case DELETE_INV_SUCCESS:
 
       return{ deletingInv: false, inventory:[...state.inventory.slice(0, action.payload), ...state.inventory.slice(action.payload+1)]}
-  
+
     case DELETE_INV_FAILURE:
       return {}
     case UPDATING_INV:

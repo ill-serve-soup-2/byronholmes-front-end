@@ -29,7 +29,27 @@
 .buy-alert{
   font-size:.4em;
   color:red;
-  
+
+}
+.button-menu{
+  width:30%;
+  margin: 0 auto;
+  margin-top:50px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+.button-menu-button{
+  padding-top:10px;
+  width: 30%;
+  margin: 0 auto;
+  background:#EF5E4A;
+  color:white;
+  border: 0px solid;
+  height: 30px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  text-align: center;
 }
 .button-group-1{
 display: flex;

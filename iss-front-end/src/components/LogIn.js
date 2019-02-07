@@ -1,29 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import { logIn } from '../actions/userAcctActions'
 import './login.css'
-import { Redirect } from 'react-router-dom'
+import './addform.css'
+import { Redirect } from 'react-router'
 let user = {"username": "", "password": ""};
 let loggedInVar;
 class LogIn extends Component{
   constructor(){
     super()
-    this.state = {loggedIn:loggedInVar}
+    this.state = {loggedIn:false}
   }
   componentWillMount(){
-    this.redirectToApp();
+    console.log('localstorage')
+    console.log(localStorage.getItem("token") === null)
+
   }
   componentWillUpdate(){
-    console.log('updating')
-    this.redirectToApp()
+    if(localStorage.getItem("token") !== null){
+      console.log('there is a token')
+    this.setState({loggedIn: true})}
   }
-  redirectToApp = () =>{
-    console.log('in redirect app')
-    console.log(loggedInVar)
-    if(loggedInVar){
-      return <Redirect to = "/" />
-    }
-  }
+
   logIn = event =>{
     console.log('this.login')
     event.preventDefault()
@@ -41,22 +40,27 @@ class LogIn extends Component{
   }
 
   render() {
+    console.log('localstorage')
 
-    loggedInVar = this.props.loginInfo;
-    console.log(this.props.loginInfo)
+    console.log(this.state.loggedIn)
     return(
-       <div className = "total-container">
-              {this.redirectToApp()}
-                <div className = "login-div">
-                  <h2>Log In</h2>
-                  <form className = "login-form" onSubmit = {this.logIn}>
-                    <input className = "text-input" name = "username" onChange = {this.getInfo} placeholder = "username" />
-                    <input className = "text-input" name = "password" onChange = {this.getInfo} placeholder = "password" />
-                    <input className = "form-input" type = "submit" value = "Login" />
-                  </form>
-
-                </div>
+      <div>
+          {this.state.loggedIn ? (<Redirect to = "/" />):
+            (<div className = "form-container-wrapper">
+              <div className = "login-form-container">
+                  <div className = "form-header">
+                    <h3>Enter Your Credentials</h3>
+                  </div>
+                  <div className = "form">
+                    <form className = "form-form" onSubmit = {this.logIn}>
+                      <input onChange = {this.getInfo} className = "text-input" name = "username" placeholder="Enter username..." />
+                      <input onChange = {this.getInfo} className = "text-input" name = "password" placeholder="Enter password..." />
+                      <input type = "submit" className = "submit-form" value = "Login" />
+                    </form>
+                  </div>
               </div>
+            </div>)}
+          </div>
      );
 
 
