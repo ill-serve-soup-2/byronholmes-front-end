@@ -1,0 +1,50 @@
+h2 {
+  font-size: 20px;
+  color: #fcfcfc;
+  padding: 20px;
+  background-color: #1F262C;
+  border-radius: 3px;
+}
+
+body {
+  background-color: #EF5E4A;
+}
+
+.registerForm {
+  width: 40%;
+  min-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.registerForm input {
+  margin: 5px 10px;
+  border-radius: 4px;
+  outline: none;
+  background-color: #1F262C;
+  border: 0px solid;
+  height: 30px;
+  color: #fcfcfc;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.regFormContainer {
+  background-color: #2E3842;
+  min-width: 300px;
+  border-radius: 3px;
+  display: block;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.regButton {
+  background: #EF5E4A;
+}
+
+.regButton:hover {
+  color: #EF5E4A;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { register } from '../actions/userAcctActions'
+import './register.css'
 
 class Register extends Component{
   constructor(props){
@@ -25,16 +26,16 @@ class Register extends Component{
   }
   render(){
     return(
-      <div>
+      <div className="regFormContainer">
         <h2>Register</h2>
-        <form onSubmit = {this.register}>
-          <input name = "username" onChange = {this.getInfo} value = {this.state.username} />
-          <input name = "password" onChange = {this.getInfo} value = {this.state.password} />
-          <input name = "name" onChange = {this.getInfo} value = {this.state.name} />
-          <input name = "role" onChange = {this.getInfo} value = {this.state.role} />
-          <input name = "email" type = "email" onChange = {this.getInfo} value = {this.state.email} />
-          <input name = "phone" onChange = {this.getInfo} value = {this.state.phone} />
-          <input type = "submit" value = "register" />
+        <form className="registerForm" onSubmit = {this.register}>
+          <input name = "username" onChange = {this.getInfo} value = {this.state.username} placeholder='Enter Username...' />
+          <input name = "password" onChange = {this.getInfo} value = {this.state.password} placeholder='Enter Password...'/>
+          <input name = "name" onChange = {this.getInfo} value = {this.state.name} placeholder='Enter Name...'/>
+          <input name = "role" onChange = {this.getInfo} value = {this.state.role} placeholder='Enter Kitchen Role...'/>
+          <input name = "email" type = "email" onChange = {this.getInfo} value = {this.state.email} placeholder='Enter Email...'/>
+          <input name = "phone" onChange = {this.getInfo} value = {this.state.phone} placeholder='Enter Phone Number...'/>
+          <input type = "submit" value = "register" className="regButton"/>
         </form>
       </div>
     );
