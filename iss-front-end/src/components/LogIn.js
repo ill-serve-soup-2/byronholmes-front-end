@@ -13,14 +13,8 @@ class LogIn extends Component{
     this.state = {loggedIn:false}
   }
   componentWillMount(){
-    console.log('localstorage')
-    console.log(localStorage.getItem("token") === null)
+    
 
-  }
-  componentWillUpdate(){
-    if(localStorage.getItem("token") !== null){
-      console.log('there is a token')
-    this.setState({loggedIn: true})}
   }
 
   logIn = event =>{
