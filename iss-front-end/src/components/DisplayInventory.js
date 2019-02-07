@@ -114,6 +114,7 @@ class DisplayInventory extends Component{
 
 
   updateQty = (e)=>{
+    qtyToUpdate =0;
     qtyToUpdate += parseInt(e.target.value)
     console.log(qtyToUpdate)
 
@@ -193,7 +194,6 @@ class DisplayInventory extends Component{
             }
         </div>
 
-        <h3>Add an item</h3>
 
         <h3>Update item - Fill in form then click button to update </h3>
         <form className = "add-form" >

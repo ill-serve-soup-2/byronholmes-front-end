@@ -17,6 +17,7 @@ class App extends Component {
     return (
       <div className="App">
       <NavLink to="/display">DisplayInventory</NavLink>
+      
       <NavLink to="inventory"></NavLink>
       <NavLink to="locations">Locations</NavLink>
       <NavLink to="volunteerRegister">Register Volunteer</NavLink>
