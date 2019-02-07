@@ -25,8 +25,9 @@ class LogIn extends Component{
     }
   }
   logIn = event =>{
+    console.log('this.login')
     event.preventDefault()
-  this.props.logIn(user, this.props.history)
+    this.props.logIn(user, this.props.history)
 
   /*setTimeout(function(){
     localStorage.setItem("token", this.props.loginInfo)

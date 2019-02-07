@@ -3,6 +3,7 @@ import './index.css'
 import { getInv, deleteInv, updateInv, addInv } from '../actions/inventoryActions'
 import Modal from './Modal'
 import ShoppingList from './ShoppingList'
+import AddItemForm from './AddItemForm'
 import { connect } from 'react-redux'
 let newItem = {name: "", quantity: 0, units: ""}
 let items = []
@@ -129,7 +130,7 @@ class DisplayInventory extends Component{
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (
 
         <div>
-
+        <AddItemForm />
         <Modal
          handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.show}
           item = {this.state.selectedItem} closeModal = {this.hideModal}
@@ -138,11 +139,13 @@ class DisplayInventory extends Component{
           showFormMethod = {this.showUpdateForm}
           closeForm = {this.hideUpdateForm}
            />
-        <h2>INVENTORY</h2>
-        <button onClick = {this.showList}>Shopping List</button>
+           <ShoppingList removeItem = {this.removeItemFromList} showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
+           <button onClick = {this.showList}>Shopping List</button>
 
-        <ShoppingList removeItem = {this.removeItemFromList} showList = {this.state.showList} list = {this.state.list} closeList = {(e)=>this.hideList()} />
         <div className = "item-container">
+        <div className ="inventory-header">
+        <h2>INVENTORY</h2>
+        </div>
             {
               this.props.inventory.map((item, index)=>{
 
@@ -151,8 +154,12 @@ class DisplayInventory extends Component{
                           <div key ={item.id}  className = "item">
                           <div className = "button-group-1"><button className = "delete-button" onClick = {(e)=>this.delete(index,item.id)}>Delete</button>
                           <button className = "update-button" onClick={(e)=>this.update(index, item.id)}>Update</button></div>
-                          <div className = "item-content" onClick = {(e)=>{this.showItem(index);this.showModal()}}>{item.name}
-                          {item.quantity} {item.units} <div className = {this.flagNeedToBuy(item) ? 'buy-alert' : 'no-buy-alert'}>Order</div></div>
+                          <div className = "item-content" onClick = {(e)=>{this.showItem(index);this.showModal()}}>
+                            <div className = "content-span-name">{item.name}</div>
+                            <div className = "content-span-qty">{(item.quantity >=0) ? item.quantity : 0}</div>
+                            <div className = "content-span-units"> {item.units} </div>
+                            <div className = {this.flagNeedToBuy(item) ? 'buy-alert' : 'no-buy-alert'}>Order</div>
+                          </div>
                           <div className = "button-group-2">
                           <button className = "increment-button" onClick = {(e)=>this.incrementItem( index,item.id,item)}>+</button>
                           <button className = "decrement-button" onClick = {(e)=>{this.decrementItem(index, item.id,item)}}>-</button></div>

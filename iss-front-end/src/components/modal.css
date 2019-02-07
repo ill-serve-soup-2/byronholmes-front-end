@@ -1,6 +1,6 @@
 .modal{
   display: block;
-  background: black;
+
   color: white;
   font-size:16px;
   top:15%;
@@ -10,7 +10,7 @@
   z-index: 1000;
   position: fixed;
 
-  background-color: rgba(0,0,0,0.85);}
+  background-color: rgba(239,94,74, .97);}
 
 .modal-hidden{
   display: none;
@@ -23,6 +23,38 @@
   margin: auto
 }
 
-.modal-content button{
+.modal-top{
+  width:95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.submit-data{
+  background: #2e3842;
+  color:white;
+  width: 20%;
+  padding-top:10px;
+  margin: 0 auto;
+
+
+  border: 0px solid;
+  height: 30px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.close-modal{
+  background-image: url("../assets/x-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:50px;
+  width:10%;
+  padding-top: 5px;
+  font-size:36px;
+  font-weight: 600;
+}
+.modal-content button{
+  color: #EF5E4A
 }

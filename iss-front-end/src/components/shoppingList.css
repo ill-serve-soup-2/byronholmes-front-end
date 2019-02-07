@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.svg{
+  fill:white;
+}
+.shopping-list{
+  display: block;
+  margin: 0 auto;
+  background:rgba(239,94,74, .97);
+  color: white;
+  font-size:20px;
+  top:5%;
+  height:90vh;
+  width:40%;
+  left:30%;
+  border-radius: 10px;
+  position: fixed;
+
+}
+
+.shopping-list-hidden{
+  display: none;
+}
+
+.list-header{
+  width:90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-header h1{
+  font-family: 'Open Sans';
+  font-weight:bold;
+}
+
+.list-top{
+  width:95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-list{
+
+  background-image: url("../assets/x-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:50px;
+  width:10%;
+  padding-top: 5px;
+  font-size:36px;
+  font-weight: 600;
+
+}
+.list-element{
+  width:80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.listed-item{
+  width:80%;
+  display: flex;
+  font-size:28px;
+  margin-top:10px;
+
+
+}
+
+.index{
+  margin-right:2%;
+}
+
+.remove-item{
+  background-image: url("../assets/x-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:30px;
+  width:5%;
+  margin-top:13px;
+  margin-right:2%;
+  font-size:36px;
+  font-weight: 600;
+}

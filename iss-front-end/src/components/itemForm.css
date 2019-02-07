@@ -1,0 +1,37 @@
+.add-form{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button{
+  background: #EF5E4A;
+  width: 10%;
+  height: 1px;
+  padding: 1.2rem 4rem;
+ font-size: 1.4rem;
+ font-weight: 300;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ background-color: @bg;
+ color: @color;
+ border-radius: 3px;
+ text-decoration: none;
+ font-family: 'Open Sans', Arial, Helvetica;
+}
+
+.form-input{
+  width: 100%;
+
+}
+
+.add-form-hidden{
+  display: none;
+}
+
+.submit-form{
+  margin-top:10px;
+  width:25%;
+}
