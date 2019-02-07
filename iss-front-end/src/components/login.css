@@ -5,8 +5,8 @@
   width:20%;
   margin: 0 auto;
   position:fixed;
-  left: 40%;
   top:25%;
+  min-width: 300px;
 
 }
 .form-container-wrapper{
