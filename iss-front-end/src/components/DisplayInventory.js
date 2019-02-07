@@ -4,6 +4,7 @@ import { getInv, deleteInv, updateInv, addInv } from '../actions/inventoryAction
 import Modal from './Modal'
 import ShoppingList from './ShoppingList'
 import AddItemForm from './AddItemForm'
+import UpdateItemForm from './UpdateItemForm'
 import { connect } from 'react-redux'
 let newItem = {name: "", quantity: 0, units: ""}
 let items = []
@@ -11,7 +12,8 @@ let items = []
 let shoppingList = [];
 let needsRestocking = []
 let qtyToUpdate = 0;
-
+let currentItemId = 0;
+let currentIndex = 0;
 class DisplayInventory extends Component{
   constructor(){
     super();
@@ -66,6 +68,9 @@ class DisplayInventory extends Component{
   closeAddForm = () =>{
     this.setState({showAddItemForm: false})
   }
+  closeUpdateForm = () =>{
+    this.setState({showUpdateForm: false})
+  }
   hideList = () =>{
     this.setState({showList: false})
   }
@@ -74,9 +79,20 @@ class DisplayInventory extends Component{
   }
 
   update = (index,id) =>{
-    console.log(newItem)
-    console.log('update')
-    this.props.updateInv(index,id, newItem);
+    console.log('in update')
+    currentItemId = id;
+    currentIndex = index;
+    console.log(currentItemId)
+    console.log(currentIndex)
+    this.setState({showUpdateForm: true})
+
+  }
+  updateItem = (e,index, id)=>{
+    e.preventDefault();
+    console.log('update item')
+
+    this.props.updateInv(index, id, newItem)
+    this.closeUpdateForm()
   }
   fakeMethod = () =>{
     return;
@@ -90,8 +106,11 @@ class DisplayInventory extends Component{
 
   }
   addItem = (e)=>{
+    console.log('in add item')
     e.preventDefault();
     this.props.addInv(newItem)
+    this.closeAddForm()
+
   }
 
   getInfo = event =>{
@@ -147,6 +166,7 @@ class DisplayInventory extends Component{
 
         <div>
         <AddItemForm show = {this.state.showAddItemForm} submitHandler={this.addItem} closeForm = {this.closeAddForm} handleChange = {this.getInfo}/>
+        <UpdateItemForm show ={this.state.showUpdateForm} submitHandler = {(e)=>this.updateItem(e,currentIndex,currentItemId)} closeForm = {this.closeUpdateForm} handleChange = {this.getInfo} />
         <Modal
          handleList = {(e)=>this.addItemToList(this.state.selectedItem)} show = {this.state.showModal}
           item = {this.state.selectedItem} closeModal = {this.hideModal}
@@ -195,14 +215,7 @@ class DisplayInventory extends Component{
         </div>
 
 
-        <h3>Update item - Fill in form then click button to update </h3>
-        <form className = "add-form" >
-          Item Name<input name = "name" onChange = {this.getInfo} />
-          Quantity<input name = "quantity" onChange = {this.getInfo} />
-          Units<input name = "units" onChange = {this.getInfo} />
 
-
-        </form>
         </div>
       )
     }</div>
