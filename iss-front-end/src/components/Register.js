@@ -35,7 +35,7 @@ class Register extends Component{
           <input name = "role" onChange = {this.getInfo} value = {this.state.role} placeholder='Enter Kitchen Role...'/>
           <input name = "email" type = "email" onChange = {this.getInfo} value = {this.state.email} placeholder='Enter Email...'/>
           <input name = "phone" onChange = {this.getInfo} value = {this.state.phone} placeholder='Enter Phone Number...'/>
-          <input type = "submit" value = "register" className="regButton"/>
+          <input type = "submit" value = "Register" className="regButton"/>
         </form>
       </div>
     );
