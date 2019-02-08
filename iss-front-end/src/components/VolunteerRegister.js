@@ -10,7 +10,6 @@ class Register extends Component {
 			username: "",
 			password: "",
 			name: "",
-			role: "",
 			email: "",
 			phone: "",
 		};
@@ -23,7 +22,7 @@ class Register extends Component {
 
 	getInfo = event => {
 		this.setState({ [event.target.name]: event.target.value });
-		console.log(this.state)
+		console.log(this.state);
 	};
 	render() {
 		return (
