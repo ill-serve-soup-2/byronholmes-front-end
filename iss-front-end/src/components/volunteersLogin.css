@@ -1,0 +1,58 @@
+.volunteer-form-container {
+	display: flex;
+	flex-wrap: wrap;
+	background: #ffab97;
+	border: 4px solid #1f262c;
+	width: 40%;
+	min-height: 400px;
+	left: 30%;
+	border-radius: 10px;
+	margin: 40px auto;
+	justify-content: center;
+}
+
+.volunteer-form-container h2 {
+	width: 100%;
+	text-align: center;
+	justify-self: center;
+}
+
+.volunteer-form {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.volunteer-form input {
+	width: 60%;
+	margin: 10px 15px;
+	padding: 8px;
+	border: 0;
+	border-radius: 4px;
+}
+
+.volunteer-form label {
+	width: 60%;
+	text-align: left;
+	margin-top: 15px;
+	font-weight: bold;
+}
+
+.volunteer-form .button-wrapper {
+	width: 80%;
+}
+
+.volunteer-form .button-wrapper .button {
+	width: 20%;
+	margin: 10px 15px;
+	padding: 10px;
+	font-size: 1.2rem;
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
+	color: #fff;
+	background-color: #1f262c;
+	border: 0;
+	border-radius: 4px;
+	cursor: pointer;
+}
