@@ -6,25 +6,29 @@
   padding-bottom: 5px;
   max-width: 100%;
   margin: 0 auto;
-  border:1px solid  #1f262d;
+  border: 1px solid  #1f262d;
   max-width: 100%;
   margin: 0 auto;
   background: rgb(253, 206, 198, .4);
 
 }
 .content-span-name{
-
   text-align: left;
-  width:60%;
+  width: 300px;
   overflow: hidden;
+  margin-right: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+
 }
 .content-span-qty{
   text-align: left;
-  width:10%;
+  width: 60px;
+  font-size: 16px;
 }
 .content-span-units{
   text-align: left;
-  width:20%;
+  width: 70px;
 }
 .buy-alert{
   font-size:.4em;
@@ -32,34 +36,37 @@
 
 }
 .button-menu{
-  width:30%;
   margin: 0 auto;
   margin-top:50px;
-
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 .button-menu-button{
-  padding-top:10px;
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 23%;
   margin: 0 auto;
   background:#EF5E4A;
   color:white;
   border: 0px solid;
-  height: 30px;
-  margin-bottom: 30px;
+  margin: 20px ;
   border-radius: 4px;
   text-align: center;
+  cursor: pointer;
+  background-color: #1E262C;
+  font-weight: bold;
 }
+
 .button-group-1{
 display: flex;
-
-margin-left:2%;
-
-align-content: center;
-height:30px;
-width:20%;
+flex-direction: column;
+margin-left: 10px;
 }
+
+
+
 .item-content{
   display: flex;
   justify-content: space-around;
@@ -90,28 +97,28 @@ width:20%;
   width:50%;
   margin-right:2%;
   height: 30px;
-  border:1px solid black;
+  border: 1px solid rgb(56, 56, 56);
 
 
 }
 
 .update-button{
-  width:40%;
-  background:#1f262d;
+  background:#ffffff;
   border-radius: 4px;
-  color:white;
+  color:rgb(14, 10, 10);
+  font-size: 14px;
 }
 .delete-button{
-  width:40%;
-  background: #941b05;
+  background: #f06c54;
   border-radius: 4px;
   color:white;
+  font-size: 14px;
 }
 .item-container{
   display: flex;
   flex-direction: column;
 
-  max-width:50%;
+  max-width: 95%;
   margin: 0 auto;
   margin-top:30px;
 

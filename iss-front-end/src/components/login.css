@@ -4,8 +4,10 @@
   display:block;
   width:20%;
   margin: 0 auto;
+  position:fixed;
   top:25%;
   min-width: 300px;
+
 }
 
 .form-container-wrapper{
@@ -14,7 +16,8 @@
   flex-direction: column;
   background-color: #fcfcfc;
   align-items: center;
-  padding-bottom: 20px;
+  justify-content: center;
+  height:100vh;
 
 }
 .login-div{
@@ -41,11 +44,13 @@
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 10px;
   background: white;
+  cursor: pointer;
 }
 
 .text-input{
   font-size: 16px;
   padding-left: 2%;
+  cursor: pointer;
 }
 
 .form-input{

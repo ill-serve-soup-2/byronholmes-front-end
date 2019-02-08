@@ -29,8 +29,8 @@ class Register extends Component{
       <div className="regFormContainer">
         <h2>Register</h2>
         <form className="registerForm" onSubmit = {this.register}>
-          <input name = "username" onChange = {this.getInfo} value = {this.state.username} placeholder='Enter Username...' />
-          <input name = "password" onChange = {this.getInfo} value = {this.state.password} placeholder='Enter Password...'/>
+          <input type="text" name = "username" onChange = {this.getInfo} value = {this.state.username} placeholder='Enter Username...' />
+          <input type="password" name = "password" onChange = {this.getInfo} value = {this.state.password} placeholder='Enter Password...'/>
           <input name = "name" onChange = {this.getInfo} value = {this.state.name} placeholder='Enter Name...'/>
           <input name = "role" onChange = {this.getInfo} value = {this.state.role} placeholder='Enter Kitchen Role...'/>
           <input name = "email" type = "email" onChange = {this.getInfo} value = {this.state.email} placeholder='Enter Email...'/>
