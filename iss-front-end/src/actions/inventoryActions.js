@@ -51,9 +51,12 @@ export const addInv = (item) => {
 
     const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/inventory`, item)
     return dispatch=>{
+      console.log('in addInv')
       dispatch({type:POSTING_INV});
       promise
         .then(response=>{
+          console.log('response')
+          console.log(response.data)
           dispatch({type: POST_INV_SUCCESS, payload: item})
         })
         .catch(err=>{

@@ -25,7 +25,10 @@ export default (state = initialState, action)=>{
     case POSTING_INV:
       return{...state, postingInv: true}
     case POST_INV_SUCCESS:
-      return{...state, postingInv: false, inventory: [...state.inventory.concat(action.payload)]}
+      console.log('post inv success')
+      console.log(action.payload)
+      console.log([...state.inventory].concat(action.payload))
+      return{...state, postingInv: false, inventory: [...state.inventory].concat(action.payload)}
     case POST_INV_FAILURE:
       return{...state, postingInv: false, error: "Error posting data"}
     case DELETING_INV:
