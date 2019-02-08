@@ -1,5 +1,5 @@
 h2 {
-  font-size: 20px;
+  font-size: 16px;
   color: #fcfcfc;
   padding: 20px;
   background-color: #1F262C;
@@ -38,8 +38,11 @@ body {
   border-radius: 3px;
   display: block;
   width: 20%;
-  margin: 0 auto;
+  margin: 50px auto;
 }
-.regButton:hover {
-  color: #EF5E4A;
+
+.registerForm .regButton {
+  background-color: #EF5E5A;
+  width: 90%;
+  margin: 10px auto 20px auto;
 }
