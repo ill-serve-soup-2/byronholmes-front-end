@@ -200,19 +200,20 @@ class DisplayInventory extends Component {
 								className="button-menu-button"
 								onClick={this.showList}
 							>
+								<i class="fas fa-clipboard-list" /> &nbsp;
 								Shopping List
 							</div>
 							<div
 								className="button-menu-button"
 								onClick={this.showAddForm}
 							>
-								Add Item{" "}
+								<i class="fas fa-plus-circle" /> &nbsp; Add Item{" "}
 							</div>
 							<div
 								className="button-menu-button"
 								onClick={this.logOut}
 							>
-								Log Out
+								<i class="fas fa-sign-out-alt" /> &nbsp; Log Out
 							</div>
 						</div>
 						<div className="item-container">
