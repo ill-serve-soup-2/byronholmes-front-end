@@ -208,10 +208,12 @@ class DisplayInventory extends Component{
                           </div>
                           <div className = "button-group-2"> 
                           
-                          <input onFocus ={()=>this.zeroUpdateQty()} onChange = {(e)=>this.updateQty(e)} className = "qty-input" placeholder = "qty" />
+                          <input type="number" onFocus ={()=>this.zeroUpdateQty()} onChange = {(e)=>this.updateQty(e)} className = "qty-input" placeholder = "qty" />
 
-                          <button className = "increment-button" onClick = {(e)=>this.incrementItem( index,item.id,item)}>+</button>
-                          <button className = "decrement-button" onClick = {(e)=>this.decrementItem( index,item.id,item)}>-</button>
+                          <div class="plusMinusButtons">
+                            <button className = "increment-button" onClick = {(e)=>this.incrementItem( index,item.id,item)}>+</button>
+                            <button className = "decrement-button" onClick = {(e)=>this.decrementItem( index,item.id,item)}>-</button>
+                          </div>
 
                         </div>
 

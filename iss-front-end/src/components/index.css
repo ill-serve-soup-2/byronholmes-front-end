@@ -14,7 +14,7 @@
 }
 .content-span-name{
   text-align: left;
-  width: 300px;
+  width: 200px;
   overflow: hidden;
   margin-right: 10px;
   border-radius: 4px;
@@ -75,9 +75,13 @@ margin-left: 10px;
   width:60%;
 }
 .button-group-2{
-
   width:20%;
   display: flex;
+}
+
+.plusMinusButtons {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -107,12 +111,18 @@ margin-left: 10px;
   border-radius: 4px;
   color:rgb(14, 10, 10);
   font-size: 14px;
+  border: 1px solid black;
+  font-weight: 500;
 }
 .delete-button{
-  background: #f06c54;
+  background: #fd573a;
   border-radius: 4px;
   color:white;
   font-size: 14px;
+  border: none;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  font-weight: 500;
 }
 .item-container{
   display: flex;
@@ -143,8 +153,9 @@ margin-left: 10px;
 
 
 .qty-input{
-  width:20%;
-  height:20px;
+  width: 50px;
+  border: none;
+  font-size: 14px;
 }
 .container-heading{
   width:100%;
