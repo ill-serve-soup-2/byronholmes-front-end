@@ -23,7 +23,6 @@ class Register extends Component {
 
 	getInfo = event => {
 		this.setState({ [event.target.name]: event.target.value });
-		console.log(this.state)
 	};
 	render() {
 		return (
@@ -89,7 +88,8 @@ class Register extends Component {
 
 const mapStateToProps = state => {
 	return {
-		stuff: [],
+		registration: state.volunteers.registration,
+		volunteers: state.volunteers.registration
 	};
 };
 

@@ -9,7 +9,9 @@ class LogIn extends Component {
 		super();
 		this.state = {};
 	}
-	componentWillUpdate() {}
+	componentWillUpdate() {
+
+	}
 	logIn = event => {
 		event.preventDefault();
 		this.props.loginVolunteer(user, this.props.history);
@@ -20,12 +22,9 @@ class LogIn extends Component {
 	};
 	getInfo = event => {
 		user[event.target.name] = event.target.value;
-		console.log(event.target.value);
-		console.log(user);
 	};
 
 	render() {
-		//console.log(this.props.loginInfo)
 		return (
 			<div className="volunteer-form-container">
 				<h1>Volunteer Login</h1>
@@ -37,7 +36,6 @@ class LogIn extends Component {
 						type="text"
 						onChange={this.getInfo}
 						value={this.state.username}
-						onChange={this.getInfo}
 						required
 					/>
 					<label for="password">Password</label>
@@ -47,12 +45,8 @@ class LogIn extends Component {
 						type="password"
 						onChange={this.getInfo}
 						value={this.state.password}
-						onChange={this.getInfo}
 						required
 					/>
-					{/* <input name="username" onChange={this.getInfo} />
-					<input name="password" onChange={this.getInfo} /> */}
-					{/* <button type="submit" value="Login" /> */}
 					<div className="button-wrapper">
 						<button type="submit" value="login" className="button">
 							Login

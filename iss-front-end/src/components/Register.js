@@ -15,12 +15,10 @@ class Register extends Component{
       "phone": ""
     }
   }
-
   register = event =>{
       event.preventDefault();
       this.props.register(this.state)
   }
-
   getInfo = event =>{
     this.setState({[event.target.name]: event.target.value})
   }

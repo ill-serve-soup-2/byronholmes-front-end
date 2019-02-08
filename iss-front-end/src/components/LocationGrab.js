@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getLocations, getLocation, changeLoc,deleteLoc} from '../actions/locationActions'
+import React from 'react'
 import './location-table.css'
 
 const LocationTable = props=>{

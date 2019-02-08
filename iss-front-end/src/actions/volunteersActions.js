@@ -8,23 +8,18 @@ export const LOGGING_IN = "LOGGING_IN"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 export const FETCHING = "FETCHING"
-export const FETCH_LOCATIONS_SUCCESS = "FETCH_LOCATIONS_SUCCESS"
-export const FETCH_LOCATIONS_FAILURE = "FETCH_LOCATIONS_FAILURE"
+export const FETCH_VOLUNTEERS_SUCCESS = "FETCH_LOCATIONS_SUCCESS"
+export const FETCH_VOLUNTEERS_FAILURE = "FETCH_LOCATIONS_FAILURE"
 
 export const registerVolunteer = (volunteer) =>{
   const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/volunteers/register`, volunteer)
   return dispatch =>{
-    console.log('in registerVolunteer')
     dispatch({type:REGISTERING_VOLUNTEER})
     promise
       .then(response=>{
-        console.log('in response')
-        console.log(response)
         dispatch({type:REGISTER_VOLUNTEER_SUCCESS })
       })
       .catch(err=>{
-        console.log('in err')
-        console.log(err)
         dispatch({type:REGISTER_VOLUNTEER_FAILURE})
       })
   }
@@ -50,9 +45,9 @@ export const findVolunteerPlaces = ()=>{
   dispatch({type:FETCHING})
   promise
     .then(response=>{
-      dispatch({type:FETCH_LOCATIONS_SUCCESS})
+      dispatch({type:FETCH_VOLUNTEERS_SUCCESS})
     })
     .catch(err=>{
-      dispatch({type:FETCH_LOCATIONS_FAILURE})
+      dispatch({type:FETCH_VOLUNTEERS_FAILURE})
     })
 }}

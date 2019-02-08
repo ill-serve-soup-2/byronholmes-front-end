@@ -10,7 +10,6 @@ const ShoppingList = props =>{
           <div className = "list-element"><div className = "remove-item" onClick = {(e)=>props.removeItem(index)}></div><div className = "listed-item"><span className = "index">{index+1}.</span> {item.name}</div></div>
         )
       })}
-
     </div>
   )
 }

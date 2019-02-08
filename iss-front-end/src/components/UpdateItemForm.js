@@ -7,7 +7,6 @@ const UpdateItemForm = (props) =>{
         <div className = "form-header">
           <h3>UpdateItem</h3>
           <div className = "close-form" onClick = {props.closeForm}></div>
-
         </div>
         <div className = "form">
           <form className = "form-form" onSubmit = {props.submitHandler}>
@@ -17,13 +16,7 @@ const UpdateItemForm = (props) =>{
             <input type = "submit" className = "submit-form" value = "Update Item"  />
           </form>
         </div>
-
-
       </div>
   );
 }
-
-
-
-
 export default UpdateItemForm;

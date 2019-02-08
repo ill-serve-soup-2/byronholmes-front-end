@@ -5,9 +5,7 @@ import $ from 'jquery'
 import { connect } from 'react-redux'
 import { getLocations } from '../actions/locationActions'
 let state = "";
-let numLocations = 0;
 
-let info = ``
 let locations = []
 
 class LocationFinder extends Component{

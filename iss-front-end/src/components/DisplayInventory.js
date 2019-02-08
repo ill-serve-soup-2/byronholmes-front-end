@@ -5,11 +5,8 @@ import Modal from './Modal'
 import ShoppingList from './ShoppingList'
 import AddItemForm from './AddItemForm'
 import UpdateItemForm from './UpdateItemForm'
-import LogOutButton from './LogOutButton'
 import { connect } from 'react-redux'
 let newItem = {name: "", quantity: 0, units: ""}
-let items = []
-//let selectedItemObject ={name: ""};
 let shoppingList = [];
 let needsRestocking = []
 let qtyToUpdate = 0;
@@ -58,7 +55,6 @@ class DisplayInventory extends Component{
   hideUpdateForm = (e) =>{
     e.preventDefault();
     this.setState({showUpdateForm: false})
-    console.log(this.state)
   }
   showList = () =>{
     this.setState({showList: true})
@@ -83,31 +79,18 @@ class DisplayInventory extends Component{
     console.log('in update')
     currentItemId = id;
     currentIndex = index;
-    console.log(currentItemId)
-    console.log(currentIndex)
     this.setState({showUpdateForm: true})
 
   }
   updateItem = (e,index, id)=>{
     e.preventDefault();
-    console.log('update item')
-
     this.props.updateInv(index, id, newItem)
     this.closeUpdateForm()
   }
-  fakeMethod = () =>{
-    return;
-  }
-
   showItem = (index) =>{
-    console.log('in showitem')
-
     this.setState({selectedItem: this.props.inventory[index]})
-
-
   }
   addItem = (e)=>{
-    console.log('in add item')
     e.preventDefault();
     this.props.addInv(newItem)
     this.closeAddForm()
@@ -116,20 +99,16 @@ class DisplayInventory extends Component{
 
   getInfo = event =>{
     newItem[event.target.name]  = event.target.value
-    console.log(event.target.value)
-    console.log(newItem)
   }
 
   incrementItem = (index, id, item) =>{
     item.quantity += qtyToUpdate
-
     this.props.updateInv(index,id, item)
 
   }
 
   decrementItem = (index, id, item) =>{
     item.quantity -= qtyToUpdate
-
     this.props.updateInv(index,id, item)
 
   }
@@ -138,14 +117,12 @@ class DisplayInventory extends Component{
   updateQty = (e)=>{
     qtyToUpdate =0;
     qtyToUpdate += parseInt(e.target.value)
-    console.log(qtyToUpdate)
 
 
 
   }
   zeroUpdateQty = (e)=>{
     qtyToUpdate = 0;
-    console.log(qtyToUpdate)
   }
   addItemToList = (item) =>{
     shoppingList.push(item);
@@ -158,15 +135,12 @@ class DisplayInventory extends Component{
       if(i!==index){
         newList.push(shoppingList[i])
       }
-
     }
     shoppingList = newList;
     this.setState({list: shoppingList})
   }
 
   render(){
-
-
     return(
       <div>
       {this.props.fetchingInv ? (<h3>Hold on, pulling up data</h3>) : (

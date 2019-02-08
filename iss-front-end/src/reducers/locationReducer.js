@@ -31,8 +31,7 @@ export default (state = initialState, action)=>{
     case DELETE_LOC_SUCCESS:
       return{...state, deletingInv: false, locations: action.payload}
     case DELETE_LOC_FAILURE:
-      return{}
-    
+      return{error: "Error deleting location"}
     case UPDATING_LOC:
       return{...state, updatingLoc: true }
     case UPDATE_LOC_SUCCESS:
