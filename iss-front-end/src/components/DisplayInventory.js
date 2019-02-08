@@ -8,7 +8,7 @@ import UpdateItemForm from './UpdateItemForm'
 import { connect } from 'react-redux'
 let newItem = {name: "", quantity: 0, units: ""}
 let shoppingList = [];
-let needsRestocking = []
+let needsRestocking = [];
 let qtyToUpdate = 0;
 let currentItemId = 0;
 let currentIndex = 0;
@@ -221,4 +221,15 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps,{getInv: getInv, deleteInv: deleteInv, updateInv: updateInv, addInv: addInv})(DisplayInventory);
+
+
+
+export default connect(
+	mapStateToProps,
+	{
+		getInv: getInv,
+		deleteInv: deleteInv,
+		updateInv: updateInv,
+		addInv: addInv,
+	}
+)(DisplayInventory);
