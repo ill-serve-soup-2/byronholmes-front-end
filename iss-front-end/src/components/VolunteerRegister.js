@@ -29,7 +29,7 @@ class Register extends Component {
 			<div className="volunteer-form-container">
 				<h1>Volunteer Register</h1>
 				<form onSubmit={this.register} className="volunteer-form">
-					<label for="phone">Username</label>
+					<label for="username">Username</label>
 					<input
 						name="username"
 						placeholder="abc123"
@@ -38,7 +38,7 @@ class Register extends Component {
 						value={this.state.username}
 						required
 					/>
-					<label for="phone">Password</label>
+					<label for="password">Password</label>
 					<input
 						name="password"
 						placeholder="password"
@@ -47,7 +47,7 @@ class Register extends Component {
 						value={this.state.password}
 						required
 					/>
-					<label for="phone">Name</label>
+					<label for="name">Name</label>
 					<input
 						name="name"
 						placeholder="Name Nameson"
@@ -55,7 +55,7 @@ class Register extends Component {
 						onChange={this.getInfo}
 						value={this.state.name}
 					/>
-					<label for="phone">Email</label>
+					<label for="email">Email</label>
 					<input
 						name="email"
 						type="email"
