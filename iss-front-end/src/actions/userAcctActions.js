@@ -6,6 +6,7 @@ export const REGISTER_FAILURE = "REGISTER_FAILURE";
 export const LOGGING_IN = "LOGGING_IN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGGEDOUT = "LOGGEDOUT";
 
 
 export const register = (user) => {
@@ -58,4 +59,10 @@ export const logIn = (credentials) => {
 
 
     }
+}
+
+export const logOut = () =>{
+  localStorage.removeItem("token")
+  return dispatch =>{
+  dispatch({type:LOGGEDOUT, payload: true});}
 }

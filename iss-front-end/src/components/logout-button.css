@@ -1,0 +1,17 @@
+.logout-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 23%;
+  margin: 0 auto;
+  background:#EF5E4A;
+  color:white;
+  border: 0px solid;
+  margin: 20px ;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #1E262C;
+  font-weight: bold;
+}

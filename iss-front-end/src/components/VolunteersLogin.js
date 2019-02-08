@@ -12,7 +12,7 @@ class LogIn extends Component {
 	componentWillUpdate() {}
 	logIn = event => {
 		event.preventDefault();
-		this.props.logIn(user, this.props.history);
+		this.props.loginVolunteer(user, this.props.history);
 
 		/*setTimeout(function(){
     localStorage.setItem("token", this.props.loginInfo)

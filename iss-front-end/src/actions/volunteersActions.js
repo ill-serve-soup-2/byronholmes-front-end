@@ -14,12 +14,17 @@ export const FETCH_LOCATIONS_FAILURE = "FETCH_LOCATIONS_FAILURE"
 export const registerVolunteer = (volunteer) =>{
   const promise = axios.post(`https://ill-serve-soup2-db.herokuapp.com/api/volunteers/register`, volunteer)
   return dispatch =>{
+    console.log('in registerVolunteer')
     dispatch({type:REGISTERING_VOLUNTEER})
     promise
       .then(response=>{
+        console.log('in response')
+        console.log(response)
         dispatch({type:REGISTER_VOLUNTEER_SUCCESS })
       })
       .catch(err=>{
+        console.log('in err')
+        console.log(err)
         dispatch({type:REGISTER_VOLUNTEER_FAILURE})
       })
   }

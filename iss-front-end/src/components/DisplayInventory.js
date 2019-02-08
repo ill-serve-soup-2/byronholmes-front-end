@@ -5,6 +5,7 @@ import Modal from './Modal'
 import ShoppingList from './ShoppingList'
 import AddItemForm from './AddItemForm'
 import UpdateItemForm from './UpdateItemForm'
+import LogOutButton from './LogOutButton'
 import { connect } from 'react-redux'
 let newItem = {name: "", quantity: 0, units: ""}
 let items = []
@@ -185,7 +186,7 @@ class DisplayInventory extends Component{
            <div className = "button-menu">
             <div className = "button-menu-button" onClick = {this.showList}>Shopping List</div>
             <div className = "button-menu-button" onClick = {this.showAddForm}>Add Item </div>
-            <div className = "button-menu-button" onClick = {this.logOut}>Log Out</div>
+              <div className = "button-menu-button" onClick = {this.logOut}>Log Out</div>
 
            </div>
         <div className = "item-container">
@@ -206,8 +207,8 @@ class DisplayInventory extends Component{
                             <div className = "content-span-units"> {item.units} </div>
                             <div className = {this.flagNeedToBuy(item) ? 'buy-alert' : 'no-buy-alert'}>Order</div>
                           </div>
-                          <div className = "button-group-2"> 
-                          
+                          <div className = "button-group-2">
+
                           <input type="number" onFocus ={()=>this.zeroUpdateQty()} onChange = {(e)=>this.updateQty(e)} className = "qty-input" placeholder = "qty" />
 
                           <div class="plusMinusButtons">

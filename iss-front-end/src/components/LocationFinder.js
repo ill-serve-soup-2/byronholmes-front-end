@@ -7,7 +7,7 @@ import { getLocations } from '../actions/locationActions'
 let state = "";
 let numLocations = 0;
 
-let info = `<div>State: ALASKA</div><div>Capital: Juneau</div>`
+let info = ``
 let locations = []
 
 class LocationFinder extends Component{

@@ -18,11 +18,12 @@ class Register extends Component {
 
 	register = event => {
 		event.preventDefault();
-		this.props.register(this.state);
+		this.props.registerVolunteer(this.state);
 	};
 
 	getInfo = event => {
 		this.setState({ [event.target.name]: event.target.value });
+		console.log(this.state)
 	};
 	render() {
 		return (
