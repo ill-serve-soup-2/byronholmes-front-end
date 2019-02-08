@@ -122,6 +122,11 @@
 	font-weight: 500;
 	cursor: pointer;
 }
+
+.update-button:hover {
+	color: #fd573a;
+}
+
 .delete-button {
 	background: #fd573a;
 	border-radius: 4px;
@@ -133,6 +138,10 @@
 	font-weight: 500;
 	padding: 2px;
 	cursor: pointer;
+}
+
+.delete-button:hover {
+	color: white;
 }
 .item-container {
 	display: flex;
