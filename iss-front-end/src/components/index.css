@@ -61,6 +61,10 @@
 	font-weight: bold;
 }
 
+.button-menu-button:hover {
+	background-color: #394046;
+}
+
 .button-group-1 {
 	display: flex;
 	flex-direction: column;
