@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
+import App from '../App.js'
+import Authenticate from './Authenticate'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router-dom'
 import { logIn } from '../actions/userAcctActions'
 import './login.css'
 import './addform.css'
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 let user = {"username": "", "password": ""};
 let loggedInVar;
 class LogIn extends Component{
   constructor(){
     super()
-    this.state = {loggedIn:true}
+    this.state = {loggedIn:false}
   }
   componentWillMount(){
 
@@ -20,11 +23,9 @@ class LogIn extends Component{
   logIn = event =>{
     console.log('this.login')
     event.preventDefault()
-    this.props.logIn(user, this.props.history)
+    this.props.logIn(user, this.props.history);
 
-  /*setTimeout(function(){
-    localStorage.setItem("token", this.props.loginInfo)
-  }, 300)*/
+
 
   }
   getInfo = event =>{
@@ -34,11 +35,16 @@ class LogIn extends Component{
   }
 
   render() {
-    console.log('localstorage')
+    console.log('in login')
+    console.log('props logininfo')
+    console.log(this.props.loginInfo)
 
-    console.log(this.state.loggedIn)
+    if(this.props.loginInfo){
+      console.log('logged in!')
+      return <Route exact path ="/" component = {App}/>
+    }else{
     return(
-    
+
 
             (<div className = "form-container-wrapper">
               <div className = "login-form-container">
@@ -58,7 +64,7 @@ class LogIn extends Component{
      );
 
 
-  }
+  }}
 }
 
 const mapStateToProps = state => {
@@ -69,4 +75,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps,{logIn})(LogIn);
+export default withRouter(connect(mapStateToProps,{logIn})(LogIn));

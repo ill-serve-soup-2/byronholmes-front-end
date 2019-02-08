@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 .add-form{
   width: 100%;
   margin: 0 auto;
@@ -35,5 +37,5 @@
   margin-top:10px;
   width:25%;
   font-size: 20px;
-  
+
 }

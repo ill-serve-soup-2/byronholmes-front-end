@@ -20,7 +20,7 @@ export default (state = initialState, action)=>{
       return{ loggingIn:true }
     case LOGIN_SUCCESS:
       console.log('in login success')
-
+      console.log(action.payload)
       return{ loggingIn: false, loginInfo: action.payload}
     case LOGIN_FAILURE:
       return{ loggingIn: true, error: "Error logging in."}

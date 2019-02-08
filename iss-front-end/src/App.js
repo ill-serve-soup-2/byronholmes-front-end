@@ -19,7 +19,7 @@ class App extends Component {
 			<div className="App">
 				<NavBar />
 				{/* <NavLink to="/display">DisplayInventory</NavLink>
-      
+
       <NavLink to="inventory"></NavLink>
       <NavLink to="locations">Locations</NavLink>
       <NavLink to="volunteerRegister">Register Volunteer</NavLink>

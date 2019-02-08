@@ -1,40 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getLocations, getLocation, changeLoc,deleteLoc} from '../actions/locationActions'
+import './location-table.css'
+
+const LocationTable = props=>{
+  const locations =   props.locations.map(location=>{
+      return (<div className = "location">
+        <div className = "location-name">{location.name}</div>
+        <div className = "location-info">
+        <div className = "address">{location.streetAddress} {location.city}, {location.state} {location.zipCode}</div>
+        <div className = "contact"><span className = "contact-label">phone:</span> {location.phone} <span className = "email-label contact-label">email:</span> {location.email} </div><div>Volunteers Needed Right Now: <span className = "volunteers">{location.volunteersNeeded}</span></div></div>
+      </div>)
+      })
+  return(
+    <div className = {props.showTable ? "location-table": "location-table-hidden" }>
+      <div className = "location-header"><h1>Locations Near You</h1>  <div className = "close-form-location" onClick = {props.closeForm}></div></div>
+        {props.locations.length>0 ? locations : <h2>Sorry, No Volunteer Opportunities in Your Area</h2>}
 
 
-class LocationGrab extends Component{
-  constructor(){
-    super();
-    this.state = {}
-  }
-  //ElPaso
-  render(){
-    return(
-      <div>
-      <button onClick ={e=>this.props.getLocations()}>Get Locations</button>
-      <button onClick ={e=>this.props.getLocation(5)}>Get Location</button>
-      <button onClick = {e=>this.props.changeLoc({city: "Dallas",
-email: "iianno4@unblog.fr",
-id: 5,
-name: "Derek",
-phone: "915-588-8129",
-state: "Texas",
-streetAddress: "3889 High Crossing Parkway",
-zipCode: "88519"}, 5)} >Change the location </button>
-  <button onClick = {e=>this.props.deleteLoc(5)}>Delete City 5</button>
+    </div>
 
-      </div>
-    )
-  }
+  )
 }
 
-const mapStateToProps = state => {
-  return{
-    fetchingLoc: state.location.fetchingLoc,
-    locations: state.location.locations,
-    error: state.location.error
 
-  }
-}
-export default connect(mapStateToProps,{getLocations, getLocation, changeLoc,deleteLoc})(LocationGrab);
+export default LocationTable;

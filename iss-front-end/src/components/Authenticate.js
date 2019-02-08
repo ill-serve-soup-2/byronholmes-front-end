@@ -1,6 +1,9 @@
 import React from 'react'
 import Login from './LogIn'
 import Register from './Register'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import {withRouter} from 'react-router-dom'
 let loggedInVar;
 const Authenticate = (App) =>
 
@@ -11,19 +14,22 @@ const Authenticate = (App) =>
         loggedIn: !(localStorage.getItem("token")===null)
       }
     }
+    componentWillMount(){
 
-    render(){
-      loggedInVar = this.state.loggedIn
-      console.log(localStorage.getItem("token"))
-      return(
-        <div>
-        {this.state.loggedIn ? <App /> : <div><Login /> <Register /></div>}
-    </div>)
+    }
+   render(){
+        console.log('rendering auth')
+        console.log(this.props.loginInfo)
+        return(
+          <div>
+          {this.state.loggedIn ? <App /> : <div><Login /></div>}
+      </div>)
 
 
-  }}
+    }}
 
-export default Authenticate;
+
+export default compose(withRouter, connect(state=>state.global, {}),Authenticate);
 
 
 /*    componentDidMount(){
